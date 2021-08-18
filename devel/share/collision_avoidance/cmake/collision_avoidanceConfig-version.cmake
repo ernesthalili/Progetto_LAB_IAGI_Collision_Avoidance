@@ -1,0 +1,1 @@
+/home/ernest/Documents/Universita/Terzo_anno/LAB IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel/.private/collision_avoidance/share/collision_avoidance/cmake/collision_avoidanceConfig-version.cmake
