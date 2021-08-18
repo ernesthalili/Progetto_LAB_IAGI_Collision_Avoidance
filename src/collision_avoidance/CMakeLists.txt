@@ -128,6 +128,9 @@ include_directories(
 #   src/${PROJECT_NAME}/collision_avoidance.cpp
 # )
 
+add_executable(controller_node_cpp src/controller_node.cpp)
+target_link_libraries(controller_node_cpp ${catkin_LIBRARIES})
+
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
