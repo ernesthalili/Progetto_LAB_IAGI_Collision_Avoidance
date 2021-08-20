@@ -128,9 +128,6 @@ include_directories(
 #   src/${PROJECT_NAME}/collision_avoidance.cpp
 # )
 
-add_executable(controller_node_cpp src/controller_node.cpp)
-target_link_libraries(controller_node_cpp ${catkin_LIBRARIES})
-
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
@@ -210,3 +207,20 @@ target_link_libraries(controller_node_cpp ${catkin_LIBRARIES})
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+#################################################
+###########  Modificato da me  ##################
+#################################################
+
+#### Dal tutorial  ####
+
+	## rosbuild
+#rosbuild_add_executable(controller_node src/controller_node.cpp)
+
+	## catkin
+add_executable(controller_node src/controller_node.cpp)
+target_link_libraries(controller_node ${catkin_LIBRARIES})
+#add_dependencies(controller_node beginner_tutorials_generate_messages_cpp)   ## Se creati dei messaggi nel package
+
+
+

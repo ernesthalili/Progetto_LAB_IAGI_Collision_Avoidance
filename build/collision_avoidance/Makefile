@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named controller_node
+
+# Build rule for target.
+controller_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controller_node
+.PHONY : controller_node
+
+# fast build rule for target.
+controller_node/fast:
+	$(MAKE) -f CMakeFiles/controller_node.dir/build.make CMakeFiles/controller_node.dir/build
+.PHONY : controller_node/fast
+
+#=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_py
 
 # Build rule for target.
@@ -739,6 +752,33 @@ gtest/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+src/controller_node.o: src/controller_node.cpp.o
+
+.PHONY : src/controller_node.o
+
+# target to build an object file
+src/controller_node.cpp.o:
+	$(MAKE) -f CMakeFiles/controller_node.dir/build.make CMakeFiles/controller_node.dir/src/controller_node.cpp.o
+.PHONY : src/controller_node.cpp.o
+
+src/controller_node.i: src/controller_node.cpp.i
+
+.PHONY : src/controller_node.i
+
+# target to preprocess a source file
+src/controller_node.cpp.i:
+	$(MAKE) -f CMakeFiles/controller_node.dir/build.make CMakeFiles/controller_node.dir/src/controller_node.cpp.i
+.PHONY : src/controller_node.cpp.i
+
+src/controller_node.s: src/controller_node.cpp.s
+
+.PHONY : src/controller_node.s
+
+# target to generate assembly for a file
+src/controller_node.cpp.s:
+	$(MAKE) -f CMakeFiles/controller_node.dir/build.make CMakeFiles/controller_node.dir/src/controller_node.cpp.s
+.PHONY : src/controller_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -748,6 +788,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... test"
+	@echo "... controller_node"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_py"
@@ -796,6 +837,9 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... src/controller_node.o"
+	@echo "... src/controller_node.i"
+	@echo "... src/controller_node.s"
 .PHONY : help
 
 
