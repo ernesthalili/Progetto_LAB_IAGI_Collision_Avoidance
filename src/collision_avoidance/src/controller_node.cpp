@@ -97,7 +97,7 @@ int main(int argc , char* argv [])
 		
 		
 		// test divisione in due parti + centrale    //////////////////////////////////////////////////////////////////////////////////////
-			/*if (len > 0)
+			if (len > 0)
 			{
 				float destra[len/2];
 				float centro[len - 2*PARAM_VISUALE];
@@ -110,33 +110,43 @@ int main(int argc , char* argv [])
 					if(i >= PARAM_VISUALE ||  i < len-PARAM_VISUALE) centro[i - PARAM_VISUALE]=laser.ranges[i];
 				}
 				
-				if(min_array(centro,len - 2*PARAM_VISUALE) > 0.8)
+				if(min_array(centro,len - 2*PARAM_VISUALE) >= 1.0){
+					vel.linear.x = command.linear_velocity;
+					if(command.partito) vel.angular.z=command.angular_velocity;
+					else vel.angular.z = 0.0;
+					check=true;
+					printf("Andando dritto\n");
+					
+					}
+				
+				else if(min_array(centro,len - 2*PARAM_VISUALE) > 0.6  &&  min_array(centro,len - 2*PARAM_VISUALE) < 1.0 )
 				{
-					vel.linear.x = 1;
-					vel.angular.z = 0.0;
+					vel.linear.x = 0.2;
+					if(command.partito) vel.angular.z=command.angular_velocity;
+					else vel.angular.z = 0.0;
 					check=true;
 					printf("Andando dritto\n");
 				}
 				else {
 					if(check == true){
-						if(min_array(destra,len/2) > min_array(sinistra,len - len/2)) vel.angular.z=-0.5;
-						else vel.angular.z=0.5;
+						if(min_array(destra,len/2) > min_array(sinistra,len - len/2)) vel.angular.z=-command.angular_velocity;
+						else vel.angular.z=command.angular_velocity;
 						check=false;
 					}
 					if(vel.angular.z > 0) printf("Girando a sinistra\n");
 					else printf("Girando a destra\n");
 					vel.linear.x=0.0;
-					
+					command.partito=false;
 					}
 								
 			vel_pub.publish(vel);
 			
 			
-		}*/
+		}
 		
-		vel.linear.x=command.linear_velocity;
+		/*vel.linear.x=command.linear_velocity;
 		vel.angular.z=command.angular_velocity;
-		vel_pub.publish(vel);
+		vel_pub.publish(vel);*/
 		//printf("velocita linear pressa: %f ,velocita angolare: %f",command.linear_velocity,command.angular_velocity);    // Controllo di debug
 		
 	    ros::spinOnce();

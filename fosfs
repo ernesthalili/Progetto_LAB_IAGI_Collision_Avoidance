@@ -1,0 +1,41 @@
+[33mcommit d045d0337e64d030d8d38436d49802c45dc2787d[m[33m ([m[1;36mHEAD -> [m[1;32mernest[m[33m, [m[1;31morigin/ernest[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ernesthalili <ernesthalili@yahoo.com>
+Date:   Sat Aug 21 17:49:49 2021 +0200
+
+    Creazione del nodo 'command_node'
+
+[33mcommit 7f2c8a0003a5122f622277459687350f810c5108[m
+Author: ernesthalili <ernesthalili@yahoo.com>
+Date:   Sat Aug 21 12:59:06 2021 +0200
+
+    Creazione del messaggio Istruzione e varie modifiche su package.xml e CMakeLists.txt
+
+[33mcommit 0f9d217fd1bcad0d5ef51511c7401fa2082f7498[m
+Author: ernesthalili <ernesthalili@yahoo.com>
+Date:   Fri Aug 20 13:14:44 2021 +0200
+
+    Creazione del nodo con le varie modifiche su CMakeLists.txt
+
+[33mcommit 92081f81cb17de397e1130d8cf0bb56ec44931f3[m
+Author: ernesthalili <ernesthalili@yahoo.com>
+Date:   Thu Aug 19 00:08:50 2021 +0200
+
+    Modifica di CmakeLists.txt
+
+[33mcommit f9a8daa90653b01277a3a79fd8bea14d650835b0[m
+Author: ernesthalili <ernesthalili@yahoo.com>
+Date:   Wed Aug 18 23:48:10 2021 +0200
+
+    Creazione del package 'collision_avoidance e la creazione vuota del nodo controller'
+
+[33mcommit 361b0aaf08392d080e27d2dfda11d1a296356a66[m
+Author: ernesthalili <ernesthalili@yahoo.com>
+Date:   Wed Aug 18 18:03:36 2021 +0200
+
+    Commit del file prova.txt
+
+[33mcommit ee14b08a42a46caab7dd7e6287d66b41f5615c5c[m
+Author: ernesthalili <75162378+ernesthalili@users.noreply.github.com>
+Date:   Wed Aug 18 11:47:20 2021 +0200
+
+    Initial commit

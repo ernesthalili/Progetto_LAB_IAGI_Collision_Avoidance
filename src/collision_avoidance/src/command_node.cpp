@@ -13,7 +13,6 @@ int main(int argc , char* argv [])
 	ros::Publisher command_pub;											// publisher per il messaggio 'Istruzione'
 	command_pub = n.advertise<collision_avoidance::Istruzione>("/Istruzione", 1000);	// topic dove si pubblica la velocità
 	
-	
 	ros::Rate loop_rate(1);
 	
 	//  Variabili da publicare su /Istruzione
