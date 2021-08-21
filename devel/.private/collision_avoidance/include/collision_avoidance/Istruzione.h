@@ -25,12 +25,12 @@ struct Istruzione_
 
   Istruzione_()
     : partito(false)
-    , linaer_velocity(0.0)
+    , linear_velocity(0.0)
     , angular_velocity(0.0)  {
     }
   Istruzione_(const ContainerAllocator& _alloc)
     : partito(false)
-    , linaer_velocity(0.0)
+    , linear_velocity(0.0)
     , angular_velocity(0.0)  {
   (void)_alloc;
     }
@@ -40,8 +40,8 @@ struct Istruzione_
    typedef uint8_t _partito_type;
   _partito_type partito;
 
-   typedef float _linaer_velocity_type;
-  _linaer_velocity_type linaer_velocity;
+   typedef float _linear_velocity_type;
+  _linear_velocity_type linear_velocity;
 
    typedef float _angular_velocity_type;
   _angular_velocity_type angular_velocity;
@@ -76,7 +76,7 @@ template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::collision_avoidance::Istruzione_<ContainerAllocator1> & lhs, const ::collision_avoidance::Istruzione_<ContainerAllocator2> & rhs)
 {
   return lhs.partito == rhs.partito &&
-    lhs.linaer_velocity == rhs.linaer_velocity &&
+    lhs.linear_velocity == rhs.linear_velocity &&
     lhs.angular_velocity == rhs.angular_velocity;
 }
 
@@ -134,12 +134,12 @@ struct MD5Sum< ::collision_avoidance::Istruzione_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "a0f279fd92a14d96829a9ff564b4fe61";
+    return "f21bc4c4d0519cf3ffa674002fbcf006";
   }
 
   static const char* value(const ::collision_avoidance::Istruzione_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xa0f279fd92a14d96ULL;
-  static const uint64_t static_value2 = 0x829a9ff564b4fe61ULL;
+  static const uint64_t static_value1 = 0xf21bc4c4d0519cf3ULL;
+  static const uint64_t static_value2 = 0xffa674002fbcf006ULL;
 };
 
 template<class ContainerAllocator>
@@ -159,7 +159,7 @@ struct Definition< ::collision_avoidance::Istruzione_<ContainerAllocator> >
   static const char* value()
   {
     return "bool partito\n"
-"float32 linaer_velocity\n"
+"float32 linear_velocity\n"
 "float32 angular_velocity\n"
 ;
   }
@@ -180,7 +180,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.partito);
-      stream.next(m.linaer_velocity);
+      stream.next(m.linear_velocity);
       stream.next(m.angular_velocity);
     }
 
@@ -202,8 +202,8 @@ struct Printer< ::collision_avoidance::Istruzione_<ContainerAllocator> >
   {
     s << indent << "partito: ";
     Printer<uint8_t>::stream(s, indent + "  ", v.partito);
-    s << indent << "linaer_velocity: ";
-    Printer<float>::stream(s, indent + "  ", v.linaer_velocity);
+    s << indent << "linear_velocity: ";
+    Printer<float>::stream(s, indent + "  ", v.linear_velocity);
     s << indent << "angular_velocity: ";
     Printer<float>::stream(s, indent + "  ", v.angular_velocity);
   }

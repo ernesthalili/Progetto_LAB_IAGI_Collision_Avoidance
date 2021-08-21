@@ -12,9 +12,9 @@
     :initarg :partito
     :type cl:boolean
     :initform cl:nil)
-   (linaer_velocity
-    :reader linaer_velocity
-    :initarg :linaer_velocity
+   (linear_velocity
+    :reader linear_velocity
+    :initarg :linear_velocity
     :type cl:float
     :initform 0.0)
    (angular_velocity
@@ -37,10 +37,10 @@
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader collision_avoidance-msg:partito-val is deprecated.  Use collision_avoidance-msg:partito instead.")
   (partito m))
 
-(cl:ensure-generic-function 'linaer_velocity-val :lambda-list '(m))
-(cl:defmethod linaer_velocity-val ((m <Istruzione>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader collision_avoidance-msg:linaer_velocity-val is deprecated.  Use collision_avoidance-msg:linaer_velocity instead.")
-  (linaer_velocity m))
+(cl:ensure-generic-function 'linear_velocity-val :lambda-list '(m))
+(cl:defmethod linear_velocity-val ((m <Istruzione>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader collision_avoidance-msg:linear_velocity-val is deprecated.  Use collision_avoidance-msg:linear_velocity instead.")
+  (linear_velocity m))
 
 (cl:ensure-generic-function 'angular_velocity-val :lambda-list '(m))
 (cl:defmethod angular_velocity-val ((m <Istruzione>))
@@ -49,7 +49,7 @@
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <Istruzione>) ostream)
   "Serializes a message object of type '<Istruzione>"
   (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:if (cl:slot-value msg 'partito) 1 0)) ostream)
-  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'linaer_velocity))))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'linear_velocity))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -68,7 +68,7 @@
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'linaer_velocity) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:setf (cl:slot-value msg 'linear_velocity) (roslisp-utils:decode-single-float-bits bits)))
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
@@ -85,16 +85,16 @@
   "collision_avoidance/Istruzione")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Istruzione>)))
   "Returns md5sum for a message object of type '<Istruzione>"
-  "a0f279fd92a14d96829a9ff564b4fe61")
+  "f21bc4c4d0519cf3ffa674002fbcf006")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Istruzione)))
   "Returns md5sum for a message object of type 'Istruzione"
-  "a0f279fd92a14d96829a9ff564b4fe61")
+  "f21bc4c4d0519cf3ffa674002fbcf006")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Istruzione>)))
   "Returns full string definition for message of type '<Istruzione>"
-  (cl:format cl:nil "bool partito~%float32 linaer_velocity~%float32 angular_velocity~%~%~%"))
+  (cl:format cl:nil "bool partito~%float32 linear_velocity~%float32 angular_velocity~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Istruzione)))
   "Returns full string definition for message of type 'Istruzione"
-  (cl:format cl:nil "bool partito~%float32 linaer_velocity~%float32 angular_velocity~%~%~%"))
+  (cl:format cl:nil "bool partito~%float32 linear_velocity~%float32 angular_velocity~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Istruzione>))
   (cl:+ 0
      1
@@ -105,6 +105,6 @@
   "Converts a ROS message object to a list"
   (cl:list 'Istruzione
     (cl:cons ':partito (partito msg))
-    (cl:cons ':linaer_velocity (linaer_velocity msg))
+    (cl:cons ':linear_velocity (linear_velocity msg))
     (cl:cons ':angular_velocity (angular_velocity msg))
 ))

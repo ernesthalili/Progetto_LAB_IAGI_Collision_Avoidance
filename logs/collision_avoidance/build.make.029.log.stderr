@@ -1,0 +1,7 @@
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:30:17:[m[K [01;31m[Kerror: [m[Kempty character constant
+   char risposta=[01;31m[K''[m[K;
+                 [01;31m[K^~[m[K
+make[2]: *** [CMakeFiles/command_node.dir/src/command_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/command_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [all] Error 2

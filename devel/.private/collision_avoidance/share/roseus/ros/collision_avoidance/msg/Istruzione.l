@@ -14,26 +14,26 @@
 
 (defclass collision_avoidance::Istruzione
   :super ros::object
-  :slots (_partito _linaer_velocity _angular_velocity ))
+  :slots (_partito _linear_velocity _angular_velocity ))
 
 (defmethod collision_avoidance::Istruzione
   (:init
    (&key
     ((:partito __partito) nil)
-    ((:linaer_velocity __linaer_velocity) 0.0)
+    ((:linear_velocity __linear_velocity) 0.0)
     ((:angular_velocity __angular_velocity) 0.0)
     )
    (send-super :init)
    (setq _partito __partito)
-   (setq _linaer_velocity (float __linaer_velocity))
+   (setq _linear_velocity (float __linear_velocity))
    (setq _angular_velocity (float __angular_velocity))
    self)
   (:partito
    (&optional __partito)
    (if __partito (setq _partito __partito)) _partito)
-  (:linaer_velocity
-   (&optional __linaer_velocity)
-   (if __linaer_velocity (setq _linaer_velocity __linaer_velocity)) _linaer_velocity)
+  (:linear_velocity
+   (&optional __linear_velocity)
+   (if __linear_velocity (setq _linear_velocity __linear_velocity)) _linear_velocity)
   (:angular_velocity
    (&optional __angular_velocity)
    (if __angular_velocity (setq _angular_velocity __angular_velocity)) _angular_velocity)
@@ -42,7 +42,7 @@
    (+
     ;; bool _partito
     1
-    ;; float32 _linaer_velocity
+    ;; float32 _linear_velocity
     4
     ;; float32 _angular_velocity
     4
@@ -53,8 +53,8 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; bool _partito
        (if _partito (write-byte -1 s) (write-byte 0 s))
-     ;; float32 _linaer_velocity
-       (sys::poke _linaer_velocity (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _linear_velocity
+       (sys::poke _linear_velocity (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; float32 _angular_velocity
        (sys::poke _angular_velocity (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;;
@@ -63,25 +63,25 @@
    (buf &optional (ptr- 0))
    ;; bool _partito
      (setq _partito (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
-   ;; float32 _linaer_velocity
-     (setq _linaer_velocity (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _linear_velocity
+     (setq _linear_velocity (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; float32 _angular_velocity
      (setq _angular_velocity (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get collision_avoidance::Istruzione :md5sum-) "a0f279fd92a14d96829a9ff564b4fe61")
+(setf (get collision_avoidance::Istruzione :md5sum-) "f21bc4c4d0519cf3ffa674002fbcf006")
 (setf (get collision_avoidance::Istruzione :datatype-) "collision_avoidance/Istruzione")
 (setf (get collision_avoidance::Istruzione :definition-)
       "bool partito
-float32 linaer_velocity
+float32 linear_velocity
 float32 angular_velocity
 
 ")
 
 
 
-(provide :collision_avoidance/Istruzione "a0f279fd92a14d96829a9ff564b4fe61")
+(provide :collision_avoidance/Istruzione "f21bc4c4d0519cf3ffa674002fbcf006")
 
 

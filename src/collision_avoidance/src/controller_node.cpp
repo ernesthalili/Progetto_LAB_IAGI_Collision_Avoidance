@@ -4,12 +4,14 @@
 #include <geometry_msgs/Twist.h>
 #include <stdio.h>
 #include <cmath>
+#include "collision_avoidance/Istruzione.h"
 #define PARAM_VISUALE 450
 //#define K 400
 
 sensor_msgs::LaserScan laser;
 nav_msgs::Odometry odom;
 geometry_msgs::Twist vel;
+collision_avoidance::Istruzione command;
 
 
 //funzione che calcola il minimo su un array e ritorna il valore
@@ -51,6 +53,12 @@ void callback_odom(const nav_msgs::Odometry::ConstPtr& msg)
 	odom = *msg;
 }
 
+void callback_command(const collision_avoidance::Istruzione::ConstPtr& msg)
+{
+	command = *msg;
+	
+}
+
 //main
 int main(int argc , char* argv [])
 {
@@ -73,6 +81,8 @@ int main(int argc , char* argv [])
 	
 	ros::Subscriber odometry_sub = n.subscribe("/odom", 1000, callback_odom);			// legge da /odom messaggi del tipo : nav_msgs/Odometry
 	
+	ros::Subscriber command_sub = n.subscribe("/Istruzione",1000,callback_command);
+	
 	ros::Rate loop_rate(5);
 	int count = 0;
 	bool check = true;																	// controlla se è per la prima volta in un ramo del if-else
@@ -87,7 +97,7 @@ int main(int argc , char* argv [])
 		
 		
 		// test divisione in due parti + centrale    //////////////////////////////////////////////////////////////////////////////////////
-			if (len > 0)
+			/*if (len > 0)
 			{
 				float destra[len/2];
 				float centro[len - 2*PARAM_VISUALE];
@@ -121,7 +131,13 @@ int main(int argc , char* argv [])
 								
 			vel_pub.publish(vel);
 			
-		}
+			
+		}*/
+		
+		vel.linear.x=command.linear_velocity;
+		vel.angular.z=command.angular_velocity;
+		vel_pub.publish(vel);
+		//printf("velocita linear pressa: %f ,velocita angolare: %f",command.linear_velocity,command.angular_velocity);    // Controllo di debug
 		
 	    ros::spinOnce();
 	    loop_rate.sleep();

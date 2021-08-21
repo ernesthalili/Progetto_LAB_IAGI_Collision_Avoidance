@@ -1,0 +1,28 @@
+[35m[1mScanning dependencies of target command_node[0m
+[35m[1mScanning dependencies of target controller_node[0m
+[  0%] Built target std_msgs_generate_messages_py
+[  9%] [32mBuilding CXX object CMakeFiles/command_node.dir/src/command_node.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/controller_node.dir/src/controller_node.cpp.o[0m
+[ 18%] Built target std_msgs_generate_messages_eus
+[ 18%] Built target _collision_avoidance_generate_messages_check_deps_Istruzione
+[ 18%] Built target std_msgs_generate_messages_cpp
+[ 18%] Built target std_msgs_generate_messages_lisp
+[ 18%] Built target std_msgs_generate_messages_nodejs
+[ 36%] Built target collision_avoidance_generate_messages_py
+[ 54%] Built target collision_avoidance_generate_messages_eus
+[ 63%] Built target collision_avoidance_generate_messages_lisp
+[ 72%] Built target collision_avoidance_generate_messages_cpp
+[ 81%] Built target collision_avoidance_generate_messages_nodejs
+[ 81%] Built target collision_avoidance_generate_messages
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:30:17:[m[K [01;31m[Kerror: [m[Kempty character constant
+   char risposta=[01;31m[K''[m[K;
+                 [01;31m[K^~[m[K
+CMakeFiles/command_node.dir/build.make:62: recipe for target 'CMakeFiles/command_node.dir/src/command_node.cpp.o' failed
+make[2]: *** [CMakeFiles/command_node.dir/src/command_node.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/command_node.dir/all' failed
+make[1]: *** [CMakeFiles/command_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 90%] [32m[1mLinking CXX executable "/home/ernest/Documents/Universita/Terzo_anno/LAB IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel/.private/collision_avoidance/lib/collision_avoidance/controller_node"[0m
+[ 90%] Built target controller_node
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2

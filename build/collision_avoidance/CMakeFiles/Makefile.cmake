@@ -232,6 +232,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/command_node.dir/DependInfo.cmake"
   "CMakeFiles/controller_node.dir/DependInfo.cmake"
   "CMakeFiles/collision_avoidance_geneus.dir/DependInfo.cmake"
   "CMakeFiles/collision_avoidance_generate_messages_eus.dir/DependInfo.cmake"

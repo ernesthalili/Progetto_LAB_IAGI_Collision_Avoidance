@@ -8,14 +8,14 @@ import struct
 
 
 class Istruzione(genpy.Message):
-  _md5sum = "a0f279fd92a14d96829a9ff564b4fe61"
+  _md5sum = "f21bc4c4d0519cf3ffa674002fbcf006"
   _type = "collision_avoidance/Istruzione"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """bool partito
-float32 linaer_velocity
+float32 linear_velocity
 float32 angular_velocity
 """
-  __slots__ = ['partito','linaer_velocity','angular_velocity']
+  __slots__ = ['partito','linear_velocity','angular_velocity']
   _slot_types = ['bool','float32','float32']
 
   def __init__(self, *args, **kwds):
@@ -26,7 +26,7 @@ float32 angular_velocity
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       partito,linaer_velocity,angular_velocity
+       partito,linear_velocity,angular_velocity
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -37,13 +37,13 @@ float32 angular_velocity
       # message fields cannot be None, assign default values for those that are
       if self.partito is None:
         self.partito = False
-      if self.linaer_velocity is None:
-        self.linaer_velocity = 0.
+      if self.linear_velocity is None:
+        self.linear_velocity = 0.
       if self.angular_velocity is None:
         self.angular_velocity = 0.
     else:
       self.partito = False
-      self.linaer_velocity = 0.
+      self.linear_velocity = 0.
       self.angular_velocity = 0.
 
   def _get_types(self):
@@ -59,7 +59,7 @@ float32 angular_velocity
     """
     try:
       _x = self
-      buff.write(_get_struct_B2f().pack(_x.partito, _x.linaer_velocity, _x.angular_velocity))
+      buff.write(_get_struct_B2f().pack(_x.partito, _x.linear_velocity, _x.angular_velocity))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -74,7 +74,7 @@ float32 angular_velocity
       _x = self
       start = end
       end += 9
-      (_x.partito, _x.linaer_velocity, _x.angular_velocity,) = _get_struct_B2f().unpack(str[start:end])
+      (_x.partito, _x.linear_velocity, _x.angular_velocity,) = _get_struct_B2f().unpack(str[start:end])
       self.partito = bool(self.partito)
       return self
     except struct.error as e:
@@ -89,7 +89,7 @@ float32 angular_velocity
     """
     try:
       _x = self
-      buff.write(_get_struct_B2f().pack(_x.partito, _x.linaer_velocity, _x.angular_velocity))
+      buff.write(_get_struct_B2f().pack(_x.partito, _x.linear_velocity, _x.angular_velocity))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -105,7 +105,7 @@ float32 angular_velocity
       _x = self
       start = end
       end += 9
-      (_x.partito, _x.linaer_velocity, _x.angular_velocity,) = _get_struct_B2f().unpack(str[start:end])
+      (_x.partito, _x.linear_velocity, _x.angular_velocity,) = _get_struct_B2f().unpack(str[start:end])
       self.partito = bool(self.partito)
       return self
     except struct.error as e:

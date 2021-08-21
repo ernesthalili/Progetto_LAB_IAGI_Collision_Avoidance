@@ -19,7 +19,7 @@ class Istruzione {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.partito = null;
-      this.linaer_velocity = null;
+      this.linear_velocity = null;
       this.angular_velocity = null;
     }
     else {
@@ -29,11 +29,11 @@ class Istruzione {
       else {
         this.partito = false;
       }
-      if (initObj.hasOwnProperty('linaer_velocity')) {
-        this.linaer_velocity = initObj.linaer_velocity
+      if (initObj.hasOwnProperty('linear_velocity')) {
+        this.linear_velocity = initObj.linear_velocity
       }
       else {
-        this.linaer_velocity = 0.0;
+        this.linear_velocity = 0.0;
       }
       if (initObj.hasOwnProperty('angular_velocity')) {
         this.angular_velocity = initObj.angular_velocity
@@ -48,8 +48,8 @@ class Istruzione {
     // Serializes a message object of type Istruzione
     // Serialize message field [partito]
     bufferOffset = _serializer.bool(obj.partito, buffer, bufferOffset);
-    // Serialize message field [linaer_velocity]
-    bufferOffset = _serializer.float32(obj.linaer_velocity, buffer, bufferOffset);
+    // Serialize message field [linear_velocity]
+    bufferOffset = _serializer.float32(obj.linear_velocity, buffer, bufferOffset);
     // Serialize message field [angular_velocity]
     bufferOffset = _serializer.float32(obj.angular_velocity, buffer, bufferOffset);
     return bufferOffset;
@@ -61,8 +61,8 @@ class Istruzione {
     let data = new Istruzione(null);
     // Deserialize message field [partito]
     data.partito = _deserializer.bool(buffer, bufferOffset);
-    // Deserialize message field [linaer_velocity]
-    data.linaer_velocity = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [linear_velocity]
+    data.linear_velocity = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [angular_velocity]
     data.angular_velocity = _deserializer.float32(buffer, bufferOffset);
     return data;
@@ -79,14 +79,14 @@ class Istruzione {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'a0f279fd92a14d96829a9ff564b4fe61';
+    return 'f21bc4c4d0519cf3ffa674002fbcf006';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     bool partito
-    float32 linaer_velocity
+    float32 linear_velocity
     float32 angular_velocity
     
     `;
@@ -105,11 +105,11 @@ class Istruzione {
       resolved.partito = false
     }
 
-    if (msg.linaer_velocity !== undefined) {
-      resolved.linaer_velocity = msg.linaer_velocity;
+    if (msg.linear_velocity !== undefined) {
+      resolved.linear_velocity = msg.linear_velocity;
     }
     else {
-      resolved.linaer_velocity = 0.0
+      resolved.linear_velocity = 0.0
     }
 
     if (msg.angular_velocity !== undefined) {

@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named command_node
+
+# Build rule for target.
+command_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 command_node
+.PHONY : command_node
+
+# fast build rule for target.
+command_node/fast:
+	$(MAKE) -f CMakeFiles/command_node.dir/build.make CMakeFiles/command_node.dir/build
+.PHONY : command_node/fast
+
+#=============================================================================
 # Target rules for targets named controller_node
 
 # Build rule for target.
@@ -908,6 +921,33 @@ gtest/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+src/command_node.o: src/command_node.cpp.o
+
+.PHONY : src/command_node.o
+
+# target to build an object file
+src/command_node.cpp.o:
+	$(MAKE) -f CMakeFiles/command_node.dir/build.make CMakeFiles/command_node.dir/src/command_node.cpp.o
+.PHONY : src/command_node.cpp.o
+
+src/command_node.i: src/command_node.cpp.i
+
+.PHONY : src/command_node.i
+
+# target to preprocess a source file
+src/command_node.cpp.i:
+	$(MAKE) -f CMakeFiles/command_node.dir/build.make CMakeFiles/command_node.dir/src/command_node.cpp.i
+.PHONY : src/command_node.cpp.i
+
+src/command_node.s: src/command_node.cpp.s
+
+.PHONY : src/command_node.s
+
+# target to generate assembly for a file
+src/command_node.cpp.s:
+	$(MAKE) -f CMakeFiles/command_node.dir/build.make CMakeFiles/command_node.dir/src/command_node.cpp.s
+.PHONY : src/command_node.cpp.s
+
 src/controller_node.o: src/controller_node.cpp.o
 
 .PHONY : src/controller_node.o
@@ -943,6 +983,7 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... command_node"
 	@echo "... controller_node"
 	@echo "... collision_avoidance_geneus"
 	@echo "... collision_avoidance_generate_messages_eus"
@@ -1005,6 +1046,9 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... src/command_node.o"
+	@echo "... src/command_node.i"
+	@echo "... src/command_node.s"
 	@echo "... src/controller_node.o"
 	@echo "... src/controller_node.i"
 	@echo "... src/controller_node.s"
