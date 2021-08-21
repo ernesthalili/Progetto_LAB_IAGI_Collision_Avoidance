@@ -1,0 +1,14 @@
+[  0%] Built target std_msgs_generate_messages_py
+[ 22%] Built target controller_node
+[ 22%] Built target std_msgs_generate_messages_eus
+The dependencies of the message/service 'collision_avoidance/Istruzione' have changed. Please rerun cmake.
+CMakeFiles/_collision_avoidance_generate_messages_check_deps_Istruzione.dir/build.make:57: recipe for target 'CMakeFiles/_collision_avoidance_generate_messages_check_deps_Istruzione' failed
+make[2]: *** [CMakeFiles/_collision_avoidance_generate_messages_check_deps_Istruzione] Error 1
+CMakeFiles/Makefile2:267: recipe for target 'CMakeFiles/_collision_avoidance_generate_messages_check_deps_Istruzione.dir/all' failed
+make[1]: *** [CMakeFiles/_collision_avoidance_generate_messages_check_deps_Istruzione.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 22%] Built target std_msgs_generate_messages_cpp
+[ 22%] Built target std_msgs_generate_messages_lisp
+[ 22%] Built target std_msgs_generate_messages_nodejs
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2

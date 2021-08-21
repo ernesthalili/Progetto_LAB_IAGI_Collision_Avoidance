@@ -1,0 +1,5 @@
+The dependencies of the message/service 'collision_avoidance/Istruzione' have changed. Please rerun cmake.
+make[2]: *** [CMakeFiles/_collision_avoidance_generate_messages_check_deps_Istruzione] Error 1
+make[1]: *** [CMakeFiles/_collision_avoidance_generate_messages_check_deps_Istruzione.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [all] Error 2

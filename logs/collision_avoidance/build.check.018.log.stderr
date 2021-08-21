@@ -1,0 +1,15 @@
+[31m[1mCMake Error[0m at /home/ernest/Documents/Universita/Terzo_anno/LAB IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/build/collision_avoidance/cmake/collision_avoidance-genmsg.cmake:3 (message):
+  Could not find messages which
+  '/home/ernest/Documents/Universita/Terzo_anno/LAB
+  IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/msg/Istruzione.msg'
+  depends on.  Did you forget to specify generate_messages(DEPENDENCIES ...)?
+
+  Cannot locate message [float] in package [collision_avoidance] with paths
+  [['/home/ernest/Documents/Universita/Terzo_anno/LAB
+  IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/msg']]
+[36mCall Stack (most recent call first):[0m
+  /opt/ros/melodic/share/genmsg/cmake/genmsg-extras.cmake:307 (include)
+  CMakeLists.txt:74 (generate_messages)
+
+
+make: *** [cmake_check_build_system] Error 1

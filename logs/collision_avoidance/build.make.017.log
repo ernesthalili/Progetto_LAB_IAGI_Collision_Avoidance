@@ -1,0 +1,19 @@
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_eus
+[ 22%] Built target controller_node
+[ 22%] Built target std_msgs_generate_messages_cpp
+[ 22%] Built target std_msgs_generate_messages_lisp
+[ 22%] Built target _collision_avoidance_generate_messages_check_deps_Istruzione
+[ 22%] Built target std_msgs_generate_messages_nodejs
+[ 55%] [34m[1mGenerating Python from MSG collision_avoidance/Istruzione[0m
+[ 55%] [34m[1mGenerating Lisp code from collision_avoidance/Istruzione.msg[0m
+[ 55%] [34m[1mGenerating EusLisp code from collision_avoidance/Istruzione.msg[0m
+[ 66%] [34m[1mGenerating C++ code from collision_avoidance/Istruzione.msg[0m
+[ 66%] Built target collision_avoidance_generate_messages_lisp
+[ 77%] Built target collision_avoidance_generate_messages_eus
+[ 88%] [34m[1mGenerating Javascript code from collision_avoidance/Istruzione.msg[0m
+[100%] [34m[1mGenerating Python msg __init__.py for collision_avoidance[0m
+[100%] Built target collision_avoidance_generate_messages_nodejs
+[100%] Built target collision_avoidance_generate_messages_cpp
+[100%] Built target collision_avoidance_generate_messages_py
+[100%] Built target collision_avoidance_generate_messages

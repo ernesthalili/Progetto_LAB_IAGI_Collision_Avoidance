@@ -55,7 +55,7 @@ void callback_odom(const nav_msgs::Odometry::ConstPtr& msg)
 int main(int argc , char* argv [])
 {
 	//ROS_INFO("Inizio del main");
-	ros::init(argc,argv,"Collision_avoidance"); 					// lancia il nodo nell'ambiente roscore
+	ros::init(argc,argv,"controller_node"); 						// lancia il nodo nell'ambiente roscore
 	ros::NodeHandle n;  											// oggetto su cui si invoca: advertise(), subscribe() 
 	
 	ros::Publisher vel_pub;											// publisher per il cmd_vel

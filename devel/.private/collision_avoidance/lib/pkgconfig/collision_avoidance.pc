@@ -3,6 +3,6 @@ prefix=/home/ernest/Documents/Universita/Terzo_anno/LAB IAGI/Progetto_finale_LAB
 Name: collision_avoidance
 Description: Description of collision_avoidance
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/ernest/Documents/Universita/Terzo_anno/LAB IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel/.private/collision_avoidance/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: message_runtime

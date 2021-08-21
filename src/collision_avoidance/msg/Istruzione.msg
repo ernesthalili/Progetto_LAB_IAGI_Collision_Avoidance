@@ -1,0 +1,3 @@
+bool partito
+float32 linaer_velocity
+float32 angular_velocity

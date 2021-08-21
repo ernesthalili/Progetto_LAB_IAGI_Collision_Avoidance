@@ -1,0 +1,10 @@
+[31m[1mCMake Error[0m at /opt/ros/melodic/share/genmsg/cmake/genmsg-extras.cmake:271 (message):
+  Could not find 'share/rospy/cmake/rospy-msg-paths.cmake' (searched in
+  '/home/ernest/Documents/Universita/Terzo_anno/LAB
+  IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel/.private/collision_avoidance;/home/ernest/Documents/Universita/Terzo_anno/LAB
+  IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel;/home/ernest/catkin_ws/devel;/opt/ros/melodic').
+[36mCall Stack (most recent call first):[0m
+  CMakeLists.txt:74 (generate_messages)
+
+
+make: *** [cmake_check_build_system] Error 1
