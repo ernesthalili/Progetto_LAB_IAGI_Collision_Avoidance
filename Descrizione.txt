@@ -1,0 +1,31 @@
+
+		PROGETTO LAB_IAGI 2020/2021  -  COLLISION AVOIDANCE
+					
+-Sistema che si basa su un laser per consentire l'anti-collisione
+
+-Compilare eseguendo sul terminale:
+	catkin build
+-Si esegue in terminali diversi:
+	1.  roscore      -> lancia il sistema ros
+	2.  rosrun stage_ros stageros /opt/ros/melodic/share/stage_ros/world/willow-erratic.world    -> lancia il nodo /stageros
+		Apre una finestra che mostra la navigazione del Robot sulla mappa
+		
+	3.  rosrun collision_avoidance controller_node    -> lancia il nodo /controller_node
+		Controlla il Robot per evitare gli ostacoli e stampa costantemente la posizione del Robot nella mappa
+		  
+	4.  rosrun collision_avoidance command_node     -> lancia il nodo /command_node
+		Tramite questo terminale un utente puo cambiare la velocita del Robot
+		
+ATTENZIONE!! 
+	Eseguire per ogni terminale: source devel/setup.bash
+	Per capire se serve eseguire, cerca di usare il TAB per auto-compilare i nomi di package,messaggi,nodi ecc. 
+	Se esso non auto-compila allora serve eseguire
+
+
+Altri commandi uttili per il debug:
+	rosrun rqt_graph rqt_graph  -> Grafico che mostra i nodi,topic e la loro relazione
+	rosmsg show <package>/<nome_messaggio>  -> mostra la definizione del messaggio
+	rosmsg  list -> mostra la lista di tutti i messaggi disponibili   ( | grep <parte_del_messaggio>   -> per filtrare i messaggi)
+	rostopic pub [-r] [frequenza(Hz)] <nome_topic> <tipo_messaggio>   -> publica da un certo topic 
+	rostopic echo <nome_topic> [-nNUM]  -> legge un topic [opzione dove si leggono solo i NUM ultimi messaggi]	
+

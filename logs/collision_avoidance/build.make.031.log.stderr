@@ -1,0 +1,4 @@
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:164:72:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%s[m[K’ expects argument of type ‘[01m[Kchar*[m[K’, but argument 2 has type ‘[01m[Kstd_msgs::String_<std::allocator<void> >::_data_type {aka std::__cxx11::basic_string<char>}[m[K’ [[01;35m[K-Wformat=[m[K]
+     printf("Navigando con velocita lineare inserita dal %s\n",nome.data[01;35m[K)[m[K;
+                                                                        [01;35m[K^[m[K

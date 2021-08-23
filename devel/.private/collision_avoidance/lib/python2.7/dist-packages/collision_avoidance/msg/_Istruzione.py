@@ -8,14 +8,15 @@ import struct
 
 
 class Istruzione(genpy.Message):
-  _md5sum = "830d49d85ef543fb78a32609382932d6"
+  _md5sum = "0153c21ae9c9e8a4681e206c85c9df1f"
   _type = "collision_avoidance/Istruzione"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """float32 linear_velocity
+  _full_text = """string nome_utente
+float32 linear_velocity
 float32 angular_velocity
 """
-  __slots__ = ['linear_velocity','angular_velocity']
-  _slot_types = ['float32','float32']
+  __slots__ = ['nome_utente','linear_velocity','angular_velocity']
+  _slot_types = ['string','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -25,7 +26,7 @@ float32 angular_velocity
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       linear_velocity,angular_velocity
+       nome_utente,linear_velocity,angular_velocity
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -34,11 +35,14 @@ float32 angular_velocity
     if args or kwds:
       super(Istruzione, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
+      if self.nome_utente is None:
+        self.nome_utente = ''
       if self.linear_velocity is None:
         self.linear_velocity = 0.
       if self.angular_velocity is None:
         self.angular_velocity = 0.
     else:
+      self.nome_utente = ''
       self.linear_velocity = 0.
       self.angular_velocity = 0.
 
@@ -54,6 +58,12 @@ float32 angular_velocity
     :param buff: buffer, ``StringIO``
     """
     try:
+      _x = self.nome_utente
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
       buff.write(_get_struct_2f().pack(_x.linear_velocity, _x.angular_velocity))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
@@ -67,6 +77,15 @@ float32 angular_velocity
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.nome_utente = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.nome_utente = str[start:end]
       _x = self
       start = end
       end += 8
@@ -83,6 +102,12 @@ float32 angular_velocity
     :param numpy: numpy python module
     """
     try:
+      _x = self.nome_utente
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
       buff.write(_get_struct_2f().pack(_x.linear_velocity, _x.angular_velocity))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
@@ -97,6 +122,15 @@ float32 angular_velocity
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.nome_utente = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.nome_utente = str[start:end]
       _x = self
       start = end
       end += 8

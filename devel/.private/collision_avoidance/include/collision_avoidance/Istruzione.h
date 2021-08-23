@@ -24,16 +24,21 @@ struct Istruzione_
   typedef Istruzione_<ContainerAllocator> Type;
 
   Istruzione_()
-    : linear_velocity(0.0)
+    : nome_utente()
+    , linear_velocity(0.0)
     , angular_velocity(0.0)  {
     }
   Istruzione_(const ContainerAllocator& _alloc)
-    : linear_velocity(0.0)
+    : nome_utente(_alloc)
+    , linear_velocity(0.0)
     , angular_velocity(0.0)  {
   (void)_alloc;
     }
 
 
+
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _nome_utente_type;
+  _nome_utente_type nome_utente;
 
    typedef float _linear_velocity_type;
   _linear_velocity_type linear_velocity;
@@ -70,7 +75,8 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::collision_avoidance::Istruzione_<ContainerAllocator1> & lhs, const ::collision_avoidance::Istruzione_<ContainerAllocator2> & rhs)
 {
-  return lhs.linear_velocity == rhs.linear_velocity &&
+  return lhs.nome_utente == rhs.nome_utente &&
+    lhs.linear_velocity == rhs.linear_velocity &&
     lhs.angular_velocity == rhs.angular_velocity;
 }
 
@@ -94,12 +100,12 @@ namespace message_traits
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::collision_avoidance::Istruzione_<ContainerAllocator> >
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::collision_avoidance::Istruzione_<ContainerAllocator> const>
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -128,12 +134,12 @@ struct MD5Sum< ::collision_avoidance::Istruzione_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "830d49d85ef543fb78a32609382932d6";
+    return "0153c21ae9c9e8a4681e206c85c9df1f";
   }
 
   static const char* value(const ::collision_avoidance::Istruzione_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x830d49d85ef543fbULL;
-  static const uint64_t static_value2 = 0x78a32609382932d6ULL;
+  static const uint64_t static_value1 = 0x0153c21ae9c9e8a4ULL;
+  static const uint64_t static_value2 = 0x681e206c85c9df1fULL;
 };
 
 template<class ContainerAllocator>
@@ -152,7 +158,8 @@ struct Definition< ::collision_avoidance::Istruzione_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float32 linear_velocity\n"
+    return "string nome_utente\n"
+"float32 linear_velocity\n"
 "float32 angular_velocity\n"
 ;
   }
@@ -172,6 +179,7 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
+      stream.next(m.nome_utente);
       stream.next(m.linear_velocity);
       stream.next(m.angular_velocity);
     }
@@ -192,6 +200,8 @@ struct Printer< ::collision_avoidance::Istruzione_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::collision_avoidance::Istruzione_<ContainerAllocator>& v)
   {
+    s << indent << "nome_utente: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.nome_utente);
     s << indent << "linear_velocity: ";
     Printer<float>::stream(s, indent + "  ", v.linear_velocity);
     s << indent << "angular_velocity: ";

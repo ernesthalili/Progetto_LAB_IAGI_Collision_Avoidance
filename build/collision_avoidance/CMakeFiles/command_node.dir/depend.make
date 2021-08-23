@@ -59,6 +59,7 @@ CMakeFiles/command_node.dir/src/command_node.cpp.o: /opt/ros/melodic/include/ros
 CMakeFiles/command_node.dir/src/command_node.cpp.o: /opt/ros/melodic/include/ros/wall_timer.h
 CMakeFiles/command_node.dir/src/command_node.cpp.o: /opt/ros/melodic/include/ros/wall_timer_options.h
 CMakeFiles/command_node.dir/src/command_node.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
+CMakeFiles/command_node.dir/src/command_node.cpp.o: /opt/ros/melodic/include/std_msgs/String.h
 CMakeFiles/command_node.dir/src/command_node.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
 CMakeFiles/command_node.dir/src/command_node.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcValue.h
 

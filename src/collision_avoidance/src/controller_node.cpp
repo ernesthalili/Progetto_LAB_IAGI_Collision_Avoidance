@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <cmath>
 #include "collision_avoidance/Istruzione.h"
+#include "std_msgs/String.h"
+
 #define PARAM_VISUALE 450       // Parametro che definisce il range dei valori da togliere sia da sinistra che da destra e mantenere solo i valori centrali
 #define SAFE_ZONE_PARAM 1.2     // Definisce il confine tra lo stato SAFE e WARNING del Robot
 #define WARNING_ZONE_PARAM 0.7  // Definisc il confine tra lo stato WARNING e DANGER
@@ -156,7 +158,8 @@ int main(int argc , char* argv [])
 				if( !ostacolo_evitato_dopo_commando ) vel.angular.z=command.angular_velocity;
 				else vel.angular.z = 0.0;
 				decisione_da_prendere = true;
-				printf("Navigando con velocita lineare inserita dal utente\n");
+				
+				printf("Navigando con velocita lineare inserita dal %s\n",command.nome_utente.c_str());
 			}
 				
 			else if(min_array(centro,len - 2*PARAM_VISUALE) > WARNING_ZONE_PARAM  &&  min_array(centro,len - 2*PARAM_VISUALE) < SAFE_ZONE_PARAM )

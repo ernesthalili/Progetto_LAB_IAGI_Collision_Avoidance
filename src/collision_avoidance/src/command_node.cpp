@@ -1,6 +1,6 @@
 #include <ros/ros.h>
 #include <stdio.h>
-#include <string>
+#include "std_msgs/String.h"
 #include "collision_avoidance/Istruzione.h"
 
 int main(int argc , char* argv [])
@@ -12,6 +12,7 @@ int main(int argc , char* argv [])
 	command_pub = n.advertise<collision_avoidance::Istruzione>("/Istruzione", 1000);	// "Istruzione" e' il topic dove si pubblica la velocità
 	
 	//  Variabili da publicare su /Istruzione
+	char n_utente [20];
 	float lin_vel;
 	float ang_vel;
 	
@@ -30,6 +31,8 @@ int main(int argc , char* argv [])
 		// Utente sceglie di cambiare la velocita
 		if(risposta == 'y')
 		{
+			printf("Inserire il nome dell'utente\n");
+			scanf("%s",n_utente);
 			printf("Indicare la velocita lineare\n");
 			scanf("%f",&lin_vel);
 			printf("Indicare la velocita angolare\n");
@@ -49,12 +52,10 @@ int main(int argc , char* argv [])
 		else 
 		{
 			printf("Commando sbagliato!\n");
-			//ros::spinOnce();
-			//loop_rate.sleep();
-			
 			continue;
 		}
 		// Assegna i campi del messaggio Istruzione da mandare
+		messaggio.nome_utente=n_utente;
 		messaggio.linear_velocity=lin_vel;
 		messaggio.angular_velocity=ang_vel;
 		

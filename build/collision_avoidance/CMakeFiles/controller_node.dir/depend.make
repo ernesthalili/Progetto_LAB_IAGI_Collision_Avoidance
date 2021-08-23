@@ -69,6 +69,7 @@ CMakeFiles/controller_node.dir/src/controller_node.cpp.o: /opt/ros/melodic/inclu
 CMakeFiles/controller_node.dir/src/controller_node.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
 CMakeFiles/controller_node.dir/src/controller_node.cpp.o: /opt/ros/melodic/include/sensor_msgs/LaserScan.h
 CMakeFiles/controller_node.dir/src/controller_node.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
+CMakeFiles/controller_node.dir/src/controller_node.cpp.o: /opt/ros/melodic/include/std_msgs/String.h
 CMakeFiles/controller_node.dir/src/controller_node.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
 CMakeFiles/controller_node.dir/src/controller_node.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcValue.h
 

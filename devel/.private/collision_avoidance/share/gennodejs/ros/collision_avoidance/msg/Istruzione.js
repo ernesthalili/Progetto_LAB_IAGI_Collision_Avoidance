@@ -18,10 +18,17 @@ class Istruzione {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
+      this.nome_utente = null;
       this.linear_velocity = null;
       this.angular_velocity = null;
     }
     else {
+      if (initObj.hasOwnProperty('nome_utente')) {
+        this.nome_utente = initObj.nome_utente
+      }
+      else {
+        this.nome_utente = '';
+      }
       if (initObj.hasOwnProperty('linear_velocity')) {
         this.linear_velocity = initObj.linear_velocity
       }
@@ -39,6 +46,8 @@ class Istruzione {
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type Istruzione
+    // Serialize message field [nome_utente]
+    bufferOffset = _serializer.string(obj.nome_utente, buffer, bufferOffset);
     // Serialize message field [linear_velocity]
     bufferOffset = _serializer.float32(obj.linear_velocity, buffer, bufferOffset);
     // Serialize message field [angular_velocity]
@@ -50,6 +59,8 @@ class Istruzione {
     //deserializes a message object of type Istruzione
     let len;
     let data = new Istruzione(null);
+    // Deserialize message field [nome_utente]
+    data.nome_utente = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [linear_velocity]
     data.linear_velocity = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [angular_velocity]
@@ -58,7 +69,9 @@ class Istruzione {
   }
 
   static getMessageSize(object) {
-    return 8;
+    let length = 0;
+    length += object.nome_utente.length;
+    return length + 12;
   }
 
   static datatype() {
@@ -68,12 +81,13 @@ class Istruzione {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '830d49d85ef543fb78a32609382932d6';
+    return '0153c21ae9c9e8a4681e206c85c9df1f';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
+    string nome_utente
     float32 linear_velocity
     float32 angular_velocity
     
@@ -86,6 +100,13 @@ class Istruzione {
       msg = {};
     }
     const resolved = new Istruzione(null);
+    if (msg.nome_utente !== undefined) {
+      resolved.nome_utente = msg.nome_utente;
+    }
+    else {
+      resolved.nome_utente = ''
+    }
+
     if (msg.linear_velocity !== undefined) {
       resolved.linear_velocity = msg.linear_velocity;
     }
