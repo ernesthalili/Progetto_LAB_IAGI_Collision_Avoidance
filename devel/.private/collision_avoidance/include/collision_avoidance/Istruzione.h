@@ -24,21 +24,16 @@ struct Istruzione_
   typedef Istruzione_<ContainerAllocator> Type;
 
   Istruzione_()
-    : partito(false)
-    , linear_velocity(0.0)
+    : linear_velocity(0.0)
     , angular_velocity(0.0)  {
     }
   Istruzione_(const ContainerAllocator& _alloc)
-    : partito(false)
-    , linear_velocity(0.0)
+    : linear_velocity(0.0)
     , angular_velocity(0.0)  {
   (void)_alloc;
     }
 
 
-
-   typedef uint8_t _partito_type;
-  _partito_type partito;
 
    typedef float _linear_velocity_type;
   _linear_velocity_type linear_velocity;
@@ -75,8 +70,7 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::collision_avoidance::Istruzione_<ContainerAllocator1> & lhs, const ::collision_avoidance::Istruzione_<ContainerAllocator2> & rhs)
 {
-  return lhs.partito == rhs.partito &&
-    lhs.linear_velocity == rhs.linear_velocity &&
+  return lhs.linear_velocity == rhs.linear_velocity &&
     lhs.angular_velocity == rhs.angular_velocity;
 }
 
@@ -134,12 +128,12 @@ struct MD5Sum< ::collision_avoidance::Istruzione_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "f21bc4c4d0519cf3ffa674002fbcf006";
+    return "830d49d85ef543fb78a32609382932d6";
   }
 
   static const char* value(const ::collision_avoidance::Istruzione_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xf21bc4c4d0519cf3ULL;
-  static const uint64_t static_value2 = 0xffa674002fbcf006ULL;
+  static const uint64_t static_value1 = 0x830d49d85ef543fbULL;
+  static const uint64_t static_value2 = 0x78a32609382932d6ULL;
 };
 
 template<class ContainerAllocator>
@@ -158,8 +152,7 @@ struct Definition< ::collision_avoidance::Istruzione_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "bool partito\n"
-"float32 linear_velocity\n"
+    return "float32 linear_velocity\n"
 "float32 angular_velocity\n"
 ;
   }
@@ -179,7 +172,6 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.partito);
       stream.next(m.linear_velocity);
       stream.next(m.angular_velocity);
     }
@@ -200,8 +192,6 @@ struct Printer< ::collision_avoidance::Istruzione_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::collision_avoidance::Istruzione_<ContainerAllocator>& v)
   {
-    s << indent << "partito: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.partito);
     s << indent << "linear_velocity: ";
     Printer<float>::stream(s, indent + "  ", v.linear_velocity);
     s << indent << "angular_velocity: ";

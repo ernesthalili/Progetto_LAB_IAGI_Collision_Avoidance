@@ -1,0 +1,7 @@
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:55:4:[m[K [01;31m[Kerror: [m[K‘[01m[Kloop_rate[m[K’ was not declared in this scope
+    [01;31m[Kloop_rate[m[K.sleep();
+    [01;31m[K^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/command_node.dir/src/command_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/command_node.dir/all] Error 2
+make: *** [all] Error 2

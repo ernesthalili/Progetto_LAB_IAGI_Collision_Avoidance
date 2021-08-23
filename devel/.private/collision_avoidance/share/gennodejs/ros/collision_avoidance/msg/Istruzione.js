@@ -18,17 +18,10 @@ class Istruzione {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.partito = null;
       this.linear_velocity = null;
       this.angular_velocity = null;
     }
     else {
-      if (initObj.hasOwnProperty('partito')) {
-        this.partito = initObj.partito
-      }
-      else {
-        this.partito = false;
-      }
       if (initObj.hasOwnProperty('linear_velocity')) {
         this.linear_velocity = initObj.linear_velocity
       }
@@ -46,8 +39,6 @@ class Istruzione {
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type Istruzione
-    // Serialize message field [partito]
-    bufferOffset = _serializer.bool(obj.partito, buffer, bufferOffset);
     // Serialize message field [linear_velocity]
     bufferOffset = _serializer.float32(obj.linear_velocity, buffer, bufferOffset);
     // Serialize message field [angular_velocity]
@@ -59,8 +50,6 @@ class Istruzione {
     //deserializes a message object of type Istruzione
     let len;
     let data = new Istruzione(null);
-    // Deserialize message field [partito]
-    data.partito = _deserializer.bool(buffer, bufferOffset);
     // Deserialize message field [linear_velocity]
     data.linear_velocity = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [angular_velocity]
@@ -69,7 +58,7 @@ class Istruzione {
   }
 
   static getMessageSize(object) {
-    return 9;
+    return 8;
   }
 
   static datatype() {
@@ -79,13 +68,12 @@ class Istruzione {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'f21bc4c4d0519cf3ffa674002fbcf006';
+    return '830d49d85ef543fb78a32609382932d6';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    bool partito
     float32 linear_velocity
     float32 angular_velocity
     
@@ -98,13 +86,6 @@ class Istruzione {
       msg = {};
     }
     const resolved = new Istruzione(null);
-    if (msg.partito !== undefined) {
-      resolved.partito = msg.partito;
-    }
-    else {
-      resolved.partito = false
-    }
-
     if (msg.linear_velocity !== undefined) {
       resolved.linear_velocity = msg.linear_velocity;
     }

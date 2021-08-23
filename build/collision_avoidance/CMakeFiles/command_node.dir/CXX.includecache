@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ernest/Documents/Universita/Terzo_anno/LAB IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel/.private/collision_avoidance/include/collision_avoidance/Istruzione.h
+/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel/.private/collision_avoidance/include/collision_avoidance/Istruzione.h
 string
 -
 vector
@@ -22,13 +22,15 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/ernest/Documents/Universita/Terzo_anno/LAB IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp
+/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp
 ros/ros.h
 -
 stdio.h
 -
+string
+-
 collision_avoidance/Istruzione.h
-/home/ernest/Documents/Universita/Terzo_anno/LAB IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/collision_avoidance/Istruzione.h
+/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/collision_avoidance/Istruzione.h
 
 /opt/ros/melodic/include/ros/advertise_options.h
 ros/forwards.h

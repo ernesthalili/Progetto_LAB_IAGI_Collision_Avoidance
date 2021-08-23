@@ -1,5 +1,0 @@
-[31m[1mCMake Error[0m at /home/ernest/Documents/Universita/Terzo_anno/LAB IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/CMakeLists.txt:218 (rosbuild_add_executable):
-  Unknown CMake command "rosbuild_add_executable".
-
-
-make: *** [cmake_check_build_system] Error 1

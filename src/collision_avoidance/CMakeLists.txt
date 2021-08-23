@@ -229,6 +229,3 @@ target_link_libraries(controller_node ${catkin_LIBRARIES})
 add_executable(command_node src/command_node.cpp)
 target_link_libraries(command_node ${catkin_LIBRARIES})
 #add_dependencies(controller_node beginner_tutorials_generate_messages_cpp)   ## Se creati dei messaggi nel package
-
-
-
