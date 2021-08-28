@@ -1,0 +1,37 @@
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:169:17:[m[K [01;31m[Kerror: [m[K‘[01m[Klen[m[K’ was not declared in this scope
+    float centro[[01;31m[Klen[m[K - 2*PARAM_VISUALE];
+                 [01;31m[K^~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:169:17:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Klink[m[K’
+    float centro[[01;36m[Klen[m[K - 2*PARAM_VISUALE];
+                 [01;36m[K^~~[m[K
+                 [32m[Klink[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:182:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kdestra[m[K’ was not declared in this scope
+      [01;31m[Kdestra[m[K[i] = laser.ranges[i];
+      [01;31m[K^~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:186:6:[m[K [01;31m[Kerror: [m[K‘[01m[Ksinistra[m[K’ was not declared in this scope
+      [01;31m[Ksinistra[m[K[i-len/2] = laser.ranges[i];
+      [01;31m[K^~~~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:186:6:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kfiniteq[m[K’
+      [01;36m[Ksinistra[m[K[i-len/2] = laser.ranges[i];
+      [01;36m[K^~~~~~~~[m[K
+      [32m[Kfiniteq[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:192:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kcentro[m[K’ was not declared in this scope
+      [01;31m[Kcentro[m[K[i - PARAM_VISUALE]=laser.ranges[i];
+      [01;31m[K^~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:210:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kcentro[m[K’ was not declared in this scope
+    if(min_array([01;31m[Kcentro[m[K,len - 2*PARAM_VISUALE) >= SAFE_ZONE_PARAM)
+                 [01;31m[K^~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:231:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kdestra[m[K’ was not declared in this scope
+      if(min_array([01;31m[Kdestra[m[K,len/2) > min_array(sinistra,len - len/2)) vel_stageros.angular.z=-vel_joystick.angular.z;
+                   [01;31m[K^~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:231:45:[m[K [01;31m[Kerror: [m[K‘[01m[Ksinistra[m[K’ was not declared in this scope
+      if(min_array(destra,len/2) > min_array([01;31m[Ksinistra[m[K,len - len/2)) vel_stageros.angular.z=-vel_joystick.angular.z;
+                                             [01;31m[K^~~~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:231:45:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kfiniteq[m[K’
+      if(min_array(destra,len/2) > min_array([01;36m[Ksinistra[m[K,len - len/2)) vel_stageros.angular.z=-vel_joystick.angular.z;
+                                             [01;36m[K^~~~~~~~[m[K
+                                             [32m[Kfiniteq[m[K
+make[2]: *** [CMakeFiles/controller_node.dir/src/controller_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/controller_node.dir/all] Error 2
+make: *** [all] Error 2

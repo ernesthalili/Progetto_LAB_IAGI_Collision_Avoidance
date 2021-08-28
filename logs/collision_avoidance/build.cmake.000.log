@@ -14,8 +14,8 @@ Not searching for unused variables given on the command line.
 [36m--[0m Detecting CXX compile features
 [36m--[0m Detecting CXX compile features - done
 [36m--[0m Using CATKIN_DEVEL_PREFIX: /home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel/.private/collision_avoidance
-[36m--[0m Using CMAKE_PREFIX_PATH: /home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel;/home/ernest/catkin_ws/devel;/opt/ros/melodic
-[36m--[0m This workspace overlays: /home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel;/home/ernest/catkin_ws/devel;/opt/ros/melodic
+[36m--[0m Using CMAKE_PREFIX_PATH: /home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel;/home/ernest/labiagi_2020_21-master/labiagi_2020_21/workspaces/srrg2_labiagi/devel;/home/ernest/catkin_ws/devel;/opt/ros/melodic
+[36m--[0m This workspace overlays: /home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel;/home/ernest/labiagi_2020_21-master/labiagi_2020_21/workspaces/srrg2_labiagi/devel;/home/ernest/catkin_ws/devel;/opt/ros/melodic
 [36m--[0m Found PythonInterp: /usr/bin/python2 (found suitable version "2.7.17", minimum required is "2")
 [36m--[0m Using PYTHON_EXECUTABLE: /usr/bin/python2
 [36m--[0m Using Debian Python package layout
@@ -39,6 +39,7 @@ Not searching for unused variables given on the command line.
 [36m--[0m catkin 0.7.29
 [36m--[0m BUILD_SHARED_LIBS is on
 [36m--[0m Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+[36m--[0m collision_avoidance: 1 messages, 0 services
 [36m--[0m Configuring done
 [36m--[0m Generating done
 [36m--[0m Build files have been written to: /home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/build/collision_avoidance

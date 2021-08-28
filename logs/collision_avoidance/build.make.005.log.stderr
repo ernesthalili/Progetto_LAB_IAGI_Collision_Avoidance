@@ -1,34 +1,52 @@
-[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
-[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:19:2:[m[K [01;31m[Kerror: [m[K‘[01m[Kstring[m[K’ was not declared in this scope
-  [01;31m[Kstring[m[K nome_utente="";
-  [01;31m[K^~~~~~[m[K
-[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:19:2:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
-In file included from [01m[K/usr/include/c++/7/string:39:0[m[K,
-                 from [01m[K/opt/ros/melodic/include/ros/platform.h:38[m[K,
-                 from [01m[K/opt/ros/melodic/include/ros/time.h:53[m[K,
-                 from [01m[K/opt/ros/melodic/include/ros/ros.h:38[m[K,
-                 from [01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:1[m[K:
-[01m[K/usr/include/c++/7/bits/stringfwd.h:74:33:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::__cxx11::string[m[K’
-   typedef basic_string<char>    [01;36m[Kstring[m[K;
-                                 [01;36m[K^~~~~~[m[K
-[01m[K/usr/include/c++/7/bits/stringfwd.h:74:33:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::__cxx11::string[m[K’
-In file included from [01m[K/usr/include/boost/lexical_cast/detail/converter_lexical.hpp:52:0[m[K,
-                 from [01m[K/usr/include/boost/lexical_cast/try_lexical_convert.hpp:42[m[K,
-                 from [01m[K/usr/include/boost/lexical_cast.hpp:32[m[K,
-                 from [01m[K/opt/ros/melodic/include/ros/transport_hints.h:34[m[K,
-                 from [01m[K/opt/ros/melodic/include/ros/subscribe_options.h:33[m[K,
-                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:42[m[K,
-                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
-                 from [01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:1[m[K:
-[01m[K/usr/include/boost/container/container_fwd.hpp:195:1:[m[K [01;36m[Knote: [m[K  ‘[01m[Kboost::container::string[m[K’
- [01;36m[Kstring[m[K;
- [01;36m[K^~~~~~[m[K
-[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:39:16:[m[K [01;31m[Kerror: [m[K‘[01m[Knome_utente[m[K’ was not declared in this scope
-    scanf("%s",&[01;31m[Knome_utente[m[K);
-                [01;31m[K^~~~~~~~~~~[m[K
-[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:65:25:[m[K [01;31m[Kerror: [m[K‘[01m[Knome_utente[m[K’ was not declared in this scope
-   messaggio.nome_utente=[01;31m[Knome_utente[m[K;
-                         [01;31m[K^~~~~~~~~~~[m[K
-make[2]: *** [CMakeFiles/command_node.dir/src/command_node.cpp.o] Error 1
-make[1]: *** [CMakeFiles/command_node.dir/all] Error 2
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:119:9:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kx_comp[m[K’ in ‘[01m[Kf_att[m[K’, which is of pointer type ‘[01m[KForza*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+   f_att.[01;31m[Kx_comp[m[K = (vel_joystick.linear.x * cos(angolo_base_mobile)) + (vel_joystick.angular.z * sin(angolo_base_mobile) );
+         [01;31m[K^~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:120:9:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Ky_comp[m[K’ in ‘[01m[Kf_att[m[K’, which is of pointer type ‘[01m[KForza*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+   f_att.[01;31m[Ky_comp[m[K = (vel_joystick.linear.x * sin(angolo_base_mobile)) + (vel_joystick.angular.z * cos(angolo_base_mobile) );
+         [01;31m[K^~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:122:77:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kx_comp[m[K’ in ‘[01m[Kf_att[m[K’, which is of pointer type ‘[01m[KForza*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+   printf("Forza esercitata dal controller  F_x:%f    \t    F_y:%f \n",f_att.[01;31m[Kx_comp[m[K.f_att.y_comp);
+                                                                             [01;31m[K^~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:169:17:[m[K [01;31m[Kerror: [m[K‘[01m[Klen[m[K’ was not declared in this scope
+    float centro[[01;31m[Klen[m[K - 2*PARAM_VISUALE];
+                 [01;31m[K^~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:169:17:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Klink[m[K’
+    float centro[[01;36m[Klen[m[K - 2*PARAM_VISUALE];
+                 [01;36m[K^~~[m[K
+                 [32m[Klink[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:182:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kdestra[m[K’ was not declared in this scope
+      [01;31m[Kdestra[m[K[i] = laser.ranges[i];
+      [01;31m[K^~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:186:6:[m[K [01;31m[Kerror: [m[K‘[01m[Ksinistra[m[K’ was not declared in this scope
+      [01;31m[Ksinistra[m[K[i-len/2] = laser.ranges[i];
+      [01;31m[K^~~~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:186:6:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kfiniteq[m[K’
+      [01;36m[Ksinistra[m[K[i-len/2] = laser.ranges[i];
+      [01;36m[K^~~~~~~~[m[K
+      [32m[Kfiniteq[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:192:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kcentro[m[K’ was not declared in this scope
+      [01;31m[Kcentro[m[K[i - PARAM_VISUALE]=laser.ranges[i];
+      [01;31m[K^~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:210:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kcentro[m[K’ was not declared in this scope
+    if(min_array([01;31m[Kcentro[m[K,len - 2*PARAM_VISUALE) >= SAFE_ZONE_PARAM)
+                 [01;31m[K^~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:213:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kostacolo_evitato_dopo_commando[m[K’ was not declared in this scope
+     if( ![01;31m[Kostacolo_evitato_dopo_commando[m[K ) vel_stageros.angular.z=vel_joystick.angular.z;
+          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:231:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kdestra[m[K’ was not declared in this scope
+      if(min_array([01;31m[Kdestra[m[K,len/2) > min_array(sinistra,len - len/2)) vel_stageros.angular.z=-vel_joystick.angular.z;
+                   [01;31m[K^~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:231:45:[m[K [01;31m[Kerror: [m[K‘[01m[Ksinistra[m[K’ was not declared in this scope
+      if(min_array(destra,len/2) > min_array([01;31m[Ksinistra[m[K,len - len/2)) vel_stageros.angular.z=-vel_joystick.angular.z;
+                                             [01;31m[K^~~~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:231:45:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kfiniteq[m[K’
+      if(min_array(destra,len/2) > min_array([01;36m[Ksinistra[m[K,len - len/2)) vel_stageros.angular.z=-vel_joystick.angular.z;
+                                             [01;36m[K^~~~~~~~[m[K
+                                             [32m[Kfiniteq[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:238:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kostacolo_evitato_dopo_commando[m[K’ was not declared in this scope
+     [01;31m[Kostacolo_evitato_dopo_commando[m[K = true;
+     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/controller_node.dir/src/controller_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/controller_node.dir/all] Error 2
 make: *** [all] Error 2

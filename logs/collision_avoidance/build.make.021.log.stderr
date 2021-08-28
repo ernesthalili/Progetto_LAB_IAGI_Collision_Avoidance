@@ -1,23 +1,16 @@
-[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
-[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:58:43:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kstd_msgs::String_<std::allocator<void> >::String_(char*&)[m[K’
-   messaggio.nome_utente=(std_msgs::String)[01;31m[Kn_utente[m[K;
-                                           [01;31m[K^~~~~~~~[m[K
-In file included from [01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:3:0[m[K:
-[01m[K/opt/ros/melodic/include/std_msgs/String.h:29:3:[m[K [01;36m[Knote: [m[Kcandidate: std_msgs::String_<ContainerAllocator>::String_(const ContainerAllocator&) [with ContainerAllocator = std::allocator<void>]
-   [01;36m[KString_[m[K(const ContainerAllocator& _alloc)
-   [01;36m[K^~~~~~~[m[K
-[01m[K/opt/ros/melodic/include/std_msgs/String.h:29:3:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kchar*[m[K’ to ‘[01m[Kconst std::allocator<void>&[m[K’
-[01m[K/opt/ros/melodic/include/std_msgs/String.h:26:3:[m[K [01;36m[Knote: [m[Kcandidate: std_msgs::String_<ContainerAllocator>::String_() [with ContainerAllocator = std::allocator<void>]
-   [01;36m[KString_[m[K()
-   [01;36m[K^~~~~~~[m[K
-[01m[K/opt/ros/melodic/include/std_msgs/String.h:26:3:[m[K [01;36m[Knote: [m[K  candidate expects 0 arguments, 1 provided
-[01m[K/opt/ros/melodic/include/std_msgs/String.h:22:8:[m[K [01;36m[Knote: [m[Kcandidate: std_msgs::String_<std::allocator<void> >::String_(const std_msgs::String_<std::allocator<void> >&)
- struct [01;36m[KString_[m[K
-        [01;36m[K^~~~~~~[m[K
-[01m[K/opt/ros/melodic/include/std_msgs/String.h:22:8:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kchar*[m[K’ to ‘[01m[Kconst std_msgs::String_<std::allocator<void> >&[m[K’
-[01m[K/opt/ros/melodic/include/std_msgs/String.h:22:8:[m[K [01;36m[Knote: [m[Kcandidate: std_msgs::String_<std::allocator<void> >::String_(std_msgs::String_<std::allocator<void> >&&)
-[01m[K/opt/ros/melodic/include/std_msgs/String.h:22:8:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kchar*[m[K’ to ‘[01m[Kstd_msgs::String_<std::allocator<void> >&&[m[K’
-make[2]: *** [CMakeFiles/command_node.dir/src/command_node.cpp.o] Error 1
-make[1]: *** [CMakeFiles/command_node.dir/all] Error 2
-make[1]: *** Waiting for unfinished jobs....
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:191:15:[m[K [01;31m[Kerror: [m[K‘[01m[Ksensor_msgs::LaserScan {aka struct sensor_msgs::LaserScan_<std::allocator<void> >}[m[K’ has no member named ‘[01m[Kangles[m[K’; did you mean ‘[01m[Kranges[m[K’?
+     if( laser.[01;31m[Kangles[m[K[i] < WARNING_ZONE_PARAM )
+               [01;31m[K^~~~~~[m[K
+               [32m[Kranges[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:193:32:[m[K [01;31m[Kerror: [m[K‘[01m[Ksensor_msgs::LaserScan {aka struct sensor_msgs::LaserScan_<std::allocator<void> >}[m[K’ has no member named ‘[01m[Kangles[m[K’; did you mean ‘[01m[Kranges[m[K’?
+      f_rep->x_comp += (- laser.[01;31m[Kangles[m[K[i] * cos(angolo_massimo - i*incremento_radian) );
+                                [01;31m[K^~~~~~[m[K
+                                [32m[Kranges[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:194:32:[m[K [01;31m[Kerror: [m[K‘[01m[Ksensor_msgs::LaserScan {aka struct sensor_msgs::LaserScan_<std::allocator<void> >}[m[K’ has no member named ‘[01m[Kangles[m[K’; did you mean ‘[01m[Kranges[m[K’?
+      f_rep->y_comp += (- laser.[01;31m[Kangles[m[K[i] * sin(angolo_massimo - i*incremento_radian) );
+                                [01;31m[K^~~~~~[m[K
+                                [32m[Kranges[m[K
+make[2]: *** [CMakeFiles/controller_node.dir/src/controller_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/controller_node.dir/all] Error 2
 make: *** [all] Error 2

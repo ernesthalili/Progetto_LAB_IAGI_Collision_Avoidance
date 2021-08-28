@@ -1,0 +1,7 @@
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:215:61:[m[K [01;31m[Kerror: [m[Kinvalid operands of types ‘[01m[Kfloat[m[K’ and ‘[01m[Kint[m[K’ to binary ‘[01m[Koperator%[m[K’
+    float v_a_imposta = [01;31m[K(angolo_base_mobile - angolo_giusto) % 2[m[K*M_PI;
+                        [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+make[2]: *** [CMakeFiles/controller_node.dir/src/controller_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/controller_node.dir/all] Error 2
+make: *** [all] Error 2

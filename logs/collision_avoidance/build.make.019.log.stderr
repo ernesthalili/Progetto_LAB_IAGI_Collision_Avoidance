@@ -1,31 +1,11 @@
-[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
-[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:57:25:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Kcollision_avoidance::Istruzione_<std::allocator<void> >::_nome_utente_type {aka std::vector<unsigned char, std::allocator<unsigned char> >}[m[K’ and ‘[01m[Kchar*[m[K’)
-   messaggio.nome_utente=[01;31m[Kn_utente[m[K;
-                         [01;31m[K^~~~~~~~[m[K
-In file included from [01m[K/usr/include/c++/7/vector:69:0[m[K,
-                 from [01m[K/usr/include/boost/math/special_functions/math_fwd.hpp:26[m[K,
-                 from [01m[K/usr/include/boost/math/special_functions/round.hpp:15[m[K,
-                 from [01m[K/opt/ros/melodic/include/ros/time.h:58[m[K,
-                 from [01m[K/opt/ros/melodic/include/ros/ros.h:38[m[K,
-                 from [01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:1[m[K:
-[01m[K/usr/include/c++/7/bits/vector.tcc:179:5:[m[K [01;36m[Knote: [m[Kcandidate: std::vector<_Tp, _Alloc>& std::vector<_Tp, _Alloc>::operator=(const std::vector<_Tp, _Alloc>&) [with _Tp = unsigned char; _Alloc = std::allocator<unsigned char>]
-     [01;36m[Kvector<_Tp, _Alloc>[m[K::
-     [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
-[01m[K/usr/include/c++/7/bits/vector.tcc:179:5:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kchar*[m[K’ to ‘[01m[Kconst std::vector<unsigned char, std::allocator<unsigned char> >&[m[K’
-In file included from [01m[K/usr/include/c++/7/vector:64:0[m[K,
-                 from [01m[K/usr/include/boost/math/special_functions/math_fwd.hpp:26[m[K,
-                 from [01m[K/usr/include/boost/math/special_functions/round.hpp:15[m[K,
-                 from [01m[K/opt/ros/melodic/include/ros/time.h:58[m[K,
-                 from [01m[K/opt/ros/melodic/include/ros/ros.h:38[m[K,
-                 from [01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp:1[m[K:
-[01m[K/usr/include/c++/7/bits/stl_vector.h:461:7:[m[K [01;36m[Knote: [m[Kcandidate: std::vector<_Tp, _Alloc>& std::vector<_Tp, _Alloc>::operator=(std::vector<_Tp, _Alloc>&&) [with _Tp = unsigned char; _Alloc = std::allocator<unsigned char>]
-       [01;36m[Koperator[m[K=(vector&& __x) noexcept(_Alloc_traits::_S_nothrow_move())
-       [01;36m[K^~~~~~~~[m[K
-[01m[K/usr/include/c++/7/bits/stl_vector.h:461:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kchar*[m[K’ to ‘[01m[Kstd::vector<unsigned char, std::allocator<unsigned char> >&&[m[K’
-[01m[K/usr/include/c++/7/bits/stl_vector.h:482:7:[m[K [01;36m[Knote: [m[Kcandidate: std::vector<_Tp, _Alloc>& std::vector<_Tp, _Alloc>::operator=(std::initializer_list<_Tp>) [with _Tp = unsigned char; _Alloc = std::allocator<unsigned char>]
-       [01;36m[Koperator[m[K=(initializer_list<value_type> __l)
-       [01;36m[K^~~~~~~~[m[K
-[01m[K/usr/include/c++/7/bits/stl_vector.h:482:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kchar*[m[K’ to ‘[01m[Kstd::initializer_list<unsigned char>[m[K’
-make[2]: *** [CMakeFiles/command_node.dir/src/command_node.cpp.o] Error 1
-make[1]: *** [CMakeFiles/command_node.dir/all] Error 2
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:117:14:[m[K [01;31m[Kerror: [m[K‘[01m[Karcos[m[K’ was not declared in this scope
+   ang_gradi= [01;31m[Karcos[m[K(odom.pose.pose.position.x / distanza_globale );
+              [01;31m[K^~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:117:14:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kacos[m[K’
+   ang_gradi= [01;36m[Karcos[m[K(odom.pose.pose.position.x / distanza_globale );
+              [01;36m[K^~~~~[m[K
+              [32m[Kacos[m[K
+make[2]: *** [CMakeFiles/controller_node.dir/src/controller_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/controller_node.dir/all] Error 2
 make: *** [all] Error 2
