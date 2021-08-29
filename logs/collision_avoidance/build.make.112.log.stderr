@@ -1,0 +1,7 @@
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:212:14:[m[K [01;31m[Kerror: [m[K‘[01m[Klunghezza[m[K’ was not declared in this scope
+    if(centro[[01;31m[Klunghezza[m[K/2] <  WARNING_ZONE_PARAM )  k_l_imposta = centro[lunghezza/2] / WARNING_ZONE_PARAM;
+              [01;31m[K^~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/controller_node.dir/src/controller_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/controller_node.dir/all] Error 2
+make: *** [all] Error 2

@@ -7,9 +7,9 @@
 #include "collision_avoidance/Istruzione.h"
 #include "std_msgs/String.h"
 
-#define PARAM_VISUALE 430       // Parametro che definisce il range dei valori da togliere sia da sinistra che da destra e mantenere solo i valori centrali
-#define WARNING_ZONE_PARAM 2  // Definisce il confine tra lo stato WARNING e DANGER
-#define K_OSTACOLI 0.005
+#define PARAM_VISUALE 400       // Parametro che definisce il range dei valori da togliere sia da sinistra che da destra e mantenere solo i valori centrali
+#define WARNING_ZONE_PARAM 1.5  // Definisce il confine tra lo stato WARNING e DANGER
+#define K_OSTACOLI 0.0001
 #define K_VELOCITA_IMPOSTA 100
 
 struct Forza {
@@ -77,14 +77,6 @@ int main(int argc , char* argv [])
 	ros::Publisher vel_pub;											// publisher per il cmd_vel
 	vel_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 1);	// il primo parametro definsce il nome del topic dove verra publicato il messaggio
 																	// mentre il secondo il numero massimo dei messaggi che possono aspettare in coda 
-	// variabile per cmd_vel
-	vel_stageros.linear.x = 0.0;		  										// inizializzano a 0.0 tutti i suoi campi del messaggio
-	vel_stageros.linear.y = 0.0;												
-	vel_stageros.linear.z = 0.0;
-	vel_stageros.angular.x = 0.0;
-	vel_stageros.angular.y = 0.0;
-	vel_stageros.angular.z = 0.0;
-	
 	//#####  Definizione Subscriber     #####
 	ros::Subscriber scanner_sub = n.subscribe("/base_scan", 1000, callback_scan); 		// legge dal topic /base_scan messaggi del tipo : sensor_msgs/LaserScan
 	
@@ -97,6 +89,8 @@ int main(int argc , char* argv [])
 	while(ros::ok())
 	{
 		angolo_base_mobile = odom.pose.pose.orientation.z * M_PI;
+		vel_stageros.linear.x=0;
+		vel_stageros.angular.z=0;
 		
 		//float ang_gradi = odom.pose.pose.orientation.z * 180;
 		
@@ -111,6 +105,7 @@ int main(int argc , char* argv [])
 		//printf("Twist: l.x:%f  , l.y:%f , l.z=%f , a.x:%f , a.y:%f  , a.z:%f \n",odom.twist.twist.linear.x,odom.twist.twist.linear.y,odom.twist.twist.linear.z,odom.twist.twist.angular.x,odom.twist.twist.angular.y,odom.twist.twist.angular.z);
 		
 		int len= laser.ranges.size();				            // misura la lunghezza dell'array che mantieni i valori del laser (1081)
+		int lunghezza_centro=len - 2*PARAM_VISUALE;
 		if (len > 0)
 		{
 			/*
@@ -122,7 +117,7 @@ int main(int argc , char* argv [])
 			 * Quando il Robot nota un ostacolo nelle vicinanze, analizzando i valori minimi degli array possiamo decidere se l'ostacolo avviene a sinistra 
 			 * o a destra del Robot
 			 * */
-			int lunghezza_centro=len - 2*PARAM_VISUALE;
+			
 			float centro[lunghezza_centro];
 			/*
 			 *Questo ciclo fa l'assegnazione correta dei valori che il laser ottiene agli array creati 
@@ -150,7 +145,7 @@ int main(int argc , char* argv [])
 				if( centro[i] < WARNING_ZONE_PARAM )
 				{
 					float valore_secondo_distanza = WARNING_ZONE_PARAM - centro[i];
-					//valore_secondo_distanza = valore_secondo_distanza * valore_secondo_distanza;
+					valore_secondo_distanza = valore_secondo_distanza * valore_secondo_distanza * valore_secondo_distanza * valore_secondo_distanza;
 					f_rep->x_comp += K_OSTACOLI * (- valore_secondo_distanza * cos(angolo_estremo_destro + i*incremento_radian) );
 					f_rep->y_comp += K_OSTACOLI * (- valore_secondo_distanza * sin(angolo_estremo_destro + i*incremento_radian) );
 					//printf("La distanza:%f  , crea una comp_x:%f   e  comp_y:%f \n",centro[i],(- centro[i] * cos(angolo_estremo_destro + i*incremento_radian) ),(- centro[i] * sin(angolo_estremo_destro + i*incremento_radian) ) );
@@ -162,26 +157,27 @@ int main(int argc , char* argv [])
 			//printf("F_x_r:%f  ;  F_y_r:%f\n",f_rep->x_comp,f_rep->y_comp);
 			//printf("F_x_a:%f  ;  F_y_a:%f\n",f_att->x_comp,f_att->y_comp);
 			
-			/*float angolo_rep=angolo_base_mobile;
+			
 			//Angolo imposto dagli ostacoli
+			float angolo_rep=0;
 			if(f_rep->x_comp != 0 || f_rep->y_comp != 0)
 			{
 				angolo_rep = atan(f_rep->y_comp/f_rep->x_comp);
-				printf("Angolo rep non modificato:%f\n",angolo_rep);
+				//printf("Angolo rep non modificato:%f\n",angolo_rep);
 				if(f_rep->x_comp < 0 )
 				{ 
 					if(f_rep->y_comp > 0 ) angolo_rep = angolo_rep + M_PI;
 					else angolo_rep = angolo_rep - M_PI;
 				}
-			}*/
+			}
 			// Angolo imposto dalla velocita
-			/*float angolo_att=angolo_base_mobile;
-			if(f_att->x_comp != 0 || f_att->y_comp != 0)
+			float angolo_att=0;
+			if(f_att->x_comp != 0 || f_att->y_comp != 0 )
 			{
 				 angolo_att = atan(f_att->y_comp/f_att->x_comp);
 				 if(angolo_base_mobile > M_PI/2 ) angolo_att += M_PI;
 				 if(angolo_base_mobile < - M_PI/2 ) angolo_att -= M_PI;
-			}*/
+			}
 			
 			//Angolo Giusto
 			float angolo_giusto=angolo_base_mobile;
@@ -198,14 +194,27 @@ int main(int argc , char* argv [])
 				}
 			}
 			printf("Angolo giusto:%f\n",angolo_giusto);
-			//printf("Angolo rep: %f\n",angolo_rep);
+			printf("Angolo rep: %f\n",angolo_rep);
+			printf("F_x_a:%f  ;  F_y_a:%f\n",f_rep->x_comp,f_rep->y_comp);
 			//printf("Angolo att: %f\n",angolo_att);
+			//printf("F_x_a:%f  ;  F_y_a:%f\n",f_att->x_comp,f_att->y_comp);
 			printf("Angolo base mobile: %f\n",angolo_base_mobile);
 			//vel_stageros.linear.x=f_att->x_comp / cos(angolo_giusto);
-			float v_a_imposta = fmodf(angolo_giusto - angolo_base_mobile  , M_PI);
+			float v_a_imposta = K_VELOCITA_IMPOSTA * fmodf(angolo_giusto - angolo_base_mobile  , M_PI);
 			printf("Velocita imposta :%f\n",v_a_imposta);
+			printf("\n");
 			vel_stageros.angular.z = vel_joystick.angular.z + v_a_imposta;
-			vel_stageros.linear.x = vel_joystick.linear.x;
+			
+			float k_l_imposta =1;
+			float valore_min = min_array(centro,lunghezza_centro);
+			if( valore_min < 0.3 ) k_l_imposta = 0;
+			else if( valore_min <  WARNING_ZONE_PARAM )  k_l_imposta = valore_min / WARNING_ZONE_PARAM;
+			k_l_imposta = k_l_imposta * k_l_imposta;
+			
+			if(vel_joystick.linear.x > 0.0 ) vel_stageros.linear.x = k_l_imposta * 2 * vel_joystick.linear.x;
+			else vel_stageros.linear.x = vel_joystick.linear.x;
+			
+			vel_pub.publish(vel_stageros);
 		
 			//if(angolo_giusto > angolo_base_mobile) vel_stageros.angular.z += 0.1;
 			//if(angolo_giusto < angolo_base_mobile) vel_stageros.angular.z -= 0.1;
@@ -264,7 +273,7 @@ int main(int argc , char* argv [])
 		}
 		
 			
-		vel_pub.publish(vel_stageros);
+		
 		
 	    ros::spinOnce();
 	    r.sleep();
