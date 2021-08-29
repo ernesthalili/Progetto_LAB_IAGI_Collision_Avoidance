@@ -168,19 +168,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named command_node
-
-# Build rule for target.
-command_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 command_node
-.PHONY : command_node
-
-# fast build rule for target.
-command_node/fast:
-	$(MAKE) -f CMakeFiles/command_node.dir/build.make CMakeFiles/command_node.dir/build
-.PHONY : command_node/fast
-
-#=============================================================================
 # Target rules for targets named controller_node
 
 # Build rule for target.
@@ -192,97 +179,6 @@ controller_node: cmake_check_build_system
 controller_node/fast:
 	$(MAKE) -f CMakeFiles/controller_node.dir/build.make CMakeFiles/controller_node.dir/build
 .PHONY : controller_node/fast
-
-#=============================================================================
-# Target rules for targets named collision_avoidance_geneus
-
-# Build rule for target.
-collision_avoidance_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_avoidance_geneus
-.PHONY : collision_avoidance_geneus
-
-# fast build rule for target.
-collision_avoidance_geneus/fast:
-	$(MAKE) -f CMakeFiles/collision_avoidance_geneus.dir/build.make CMakeFiles/collision_avoidance_geneus.dir/build
-.PHONY : collision_avoidance_geneus/fast
-
-#=============================================================================
-# Target rules for targets named collision_avoidance_generate_messages_eus
-
-# Build rule for target.
-collision_avoidance_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_avoidance_generate_messages_eus
-.PHONY : collision_avoidance_generate_messages_eus
-
-# fast build rule for target.
-collision_avoidance_generate_messages_eus/fast:
-	$(MAKE) -f CMakeFiles/collision_avoidance_generate_messages_eus.dir/build.make CMakeFiles/collision_avoidance_generate_messages_eus.dir/build
-.PHONY : collision_avoidance_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named collision_avoidance_gencpp
-
-# Build rule for target.
-collision_avoidance_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_avoidance_gencpp
-.PHONY : collision_avoidance_gencpp
-
-# fast build rule for target.
-collision_avoidance_gencpp/fast:
-	$(MAKE) -f CMakeFiles/collision_avoidance_gencpp.dir/build.make CMakeFiles/collision_avoidance_gencpp.dir/build
-.PHONY : collision_avoidance_gencpp/fast
-
-#=============================================================================
-# Target rules for targets named collision_avoidance_generate_messages_lisp
-
-# Build rule for target.
-collision_avoidance_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_avoidance_generate_messages_lisp
-.PHONY : collision_avoidance_generate_messages_lisp
-
-# fast build rule for target.
-collision_avoidance_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/collision_avoidance_generate_messages_lisp.dir/build.make CMakeFiles/collision_avoidance_generate_messages_lisp.dir/build
-.PHONY : collision_avoidance_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named collision_avoidance_generate_messages_cpp
-
-# Build rule for target.
-collision_avoidance_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_avoidance_generate_messages_cpp
-.PHONY : collision_avoidance_generate_messages_cpp
-
-# fast build rule for target.
-collision_avoidance_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/collision_avoidance_generate_messages_cpp.dir/build.make CMakeFiles/collision_avoidance_generate_messages_cpp.dir/build
-.PHONY : collision_avoidance_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named _collision_avoidance_generate_messages_check_deps_Istruzione
-
-# Build rule for target.
-_collision_avoidance_generate_messages_check_deps_Istruzione: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _collision_avoidance_generate_messages_check_deps_Istruzione
-.PHONY : _collision_avoidance_generate_messages_check_deps_Istruzione
-
-# fast build rule for target.
-_collision_avoidance_generate_messages_check_deps_Istruzione/fast:
-	$(MAKE) -f CMakeFiles/_collision_avoidance_generate_messages_check_deps_Istruzione.dir/build.make CMakeFiles/_collision_avoidance_generate_messages_check_deps_Istruzione.dir/build
-.PHONY : _collision_avoidance_generate_messages_check_deps_Istruzione/fast
-
-#=============================================================================
-# Target rules for targets named collision_avoidance_generate_messages
-
-# Build rule for target.
-collision_avoidance_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_avoidance_generate_messages
-.PHONY : collision_avoidance_generate_messages
-
-# fast build rule for target.
-collision_avoidance_generate_messages/fast:
-	$(MAKE) -f CMakeFiles/collision_avoidance_generate_messages.dir/build.make CMakeFiles/collision_avoidance_generate_messages.dir/build
-.PHONY : collision_avoidance_generate_messages/fast
 
 #=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_py
@@ -309,19 +205,6 @@ sensor_msgs_generate_messages_eus: cmake_check_build_system
 sensor_msgs_generate_messages_eus/fast:
 	$(MAKE) -f CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
 .PHONY : sensor_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named collision_avoidance_genpy
-
-# Build rule for target.
-collision_avoidance_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_avoidance_genpy
-.PHONY : collision_avoidance_genpy
-
-# fast build rule for target.
-collision_avoidance_genpy/fast:
-	$(MAKE) -f CMakeFiles/collision_avoidance_genpy.dir/build.make CMakeFiles/collision_avoidance_genpy.dir/build
-.PHONY : collision_avoidance_genpy/fast
 
 #=============================================================================
 # Target rules for targets named std_msgs_generate_messages_py
@@ -374,19 +257,6 @@ std_msgs_generate_messages_lisp: cmake_check_build_system
 std_msgs_generate_messages_lisp/fast:
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named collision_avoidance_gennodejs
-
-# Build rule for target.
-collision_avoidance_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_avoidance_gennodejs
-.PHONY : collision_avoidance_gennodejs
-
-# fast build rule for target.
-collision_avoidance_gennodejs/fast:
-	$(MAKE) -f CMakeFiles/collision_avoidance_gennodejs.dir/build.make CMakeFiles/collision_avoidance_gennodejs.dir/build
-.PHONY : collision_avoidance_gennodejs/fast
 
 #=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_cpp
@@ -480,19 +350,6 @@ rosgraph_msgs_generate_messages_nodejs/fast:
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named collision_avoidance_generate_messages_nodejs
-
-# Build rule for target.
-collision_avoidance_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_avoidance_generate_messages_nodejs
-.PHONY : collision_avoidance_generate_messages_nodejs
-
-# fast build rule for target.
-collision_avoidance_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/collision_avoidance_generate_messages_nodejs.dir/build.make CMakeFiles/collision_avoidance_generate_messages_nodejs.dir/build
-.PHONY : collision_avoidance_generate_messages_nodejs/fast
-
-#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_py
 
 # Build rule for target.
@@ -504,19 +361,6 @@ rosgraph_msgs_generate_messages_py: cmake_check_build_system
 rosgraph_msgs_generate_messages_py/fast:
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named collision_avoidance_genlisp
-
-# Build rule for target.
-collision_avoidance_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_avoidance_genlisp
-.PHONY : collision_avoidance_genlisp
-
-# fast build rule for target.
-collision_avoidance_genlisp/fast:
-	$(MAKE) -f CMakeFiles/collision_avoidance_genlisp.dir/build.make CMakeFiles/collision_avoidance_genlisp.dir/build
-.PHONY : collision_avoidance_genlisp/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_py
@@ -766,19 +610,6 @@ actionlib_msgs_generate_messages_eus/fast:
 .PHONY : actionlib_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named collision_avoidance_generate_messages_py
-
-# Build rule for target.
-collision_avoidance_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 collision_avoidance_generate_messages_py
-.PHONY : collision_avoidance_generate_messages_py
-
-# fast build rule for target.
-collision_avoidance_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/collision_avoidance_generate_messages_py.dir/build.make CMakeFiles/collision_avoidance_generate_messages_py.dir/build
-.PHONY : collision_avoidance_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named actionlib_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -921,33 +752,6 @@ gtest/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
-src/command_node.o: src/command_node.cpp.o
-
-.PHONY : src/command_node.o
-
-# target to build an object file
-src/command_node.cpp.o:
-	$(MAKE) -f CMakeFiles/command_node.dir/build.make CMakeFiles/command_node.dir/src/command_node.cpp.o
-.PHONY : src/command_node.cpp.o
-
-src/command_node.i: src/command_node.cpp.i
-
-.PHONY : src/command_node.i
-
-# target to preprocess a source file
-src/command_node.cpp.i:
-	$(MAKE) -f CMakeFiles/command_node.dir/build.make CMakeFiles/command_node.dir/src/command_node.cpp.i
-.PHONY : src/command_node.cpp.i
-
-src/command_node.s: src/command_node.cpp.s
-
-.PHONY : src/command_node.s
-
-# target to generate assembly for a file
-src/command_node.cpp.s:
-	$(MAKE) -f CMakeFiles/command_node.dir/build.make CMakeFiles/command_node.dir/src/command_node.cpp.s
-.PHONY : src/command_node.cpp.s
-
 src/controller_node.o: src/controller_node.cpp.o
 
 .PHONY : src/controller_node.o
@@ -983,25 +787,15 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... command_node"
-	@echo "... controller_node"
-	@echo "... collision_avoidance_geneus"
-	@echo "... collision_avoidance_generate_messages_eus"
-	@echo "... collision_avoidance_gencpp"
-	@echo "... collision_avoidance_generate_messages_lisp"
-	@echo "... collision_avoidance_generate_messages_cpp"
 	@echo "... test"
-	@echo "... _collision_avoidance_generate_messages_check_deps_Istruzione"
-	@echo "... collision_avoidance_generate_messages"
+	@echo "... controller_node"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_eus"
-	@echo "... collision_avoidance_genpy"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... install"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... collision_avoidance_gennodejs"
 	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... tests"
@@ -1010,9 +804,7 @@ help:
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... collision_avoidance_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... collision_avoidance_genlisp"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_nodejs"
 	@echo "... run_tests"
@@ -1034,7 +826,6 @@ help:
 	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_eus"
-	@echo "... collision_avoidance_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_lisp"
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... roscpp_generate_messages_nodejs"
@@ -1046,9 +837,6 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... src/command_node.o"
-	@echo "... src/command_node.i"
-	@echo "... src/command_node.s"
 	@echo "... src/controller_node.o"
 	@echo "... src/controller_node.i"
 	@echo "... src/controller_node.s"

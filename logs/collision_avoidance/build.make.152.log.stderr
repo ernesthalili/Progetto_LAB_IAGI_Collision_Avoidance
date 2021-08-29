@@ -1,0 +1,12 @@
+make[2]: *** No rule to make target '/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/command_node.cpp', needed by 'CMakeFiles/command_node.dir/src/command_node.cpp.o'.  Stop.
+make[1]: *** [CMakeFiles/command_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+Traceback (most recent call last):
+  File "/opt/ros/melodic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py", line 54, in <module>
+    spec = load_msg_from_file(msg_context, msg_file, full_type_name)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/genmsg/msg_loader.py", line 284, in load_msg_from_file
+    with open(file_path, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/msg/Istruzione.msg'
+make[2]: *** [CMakeFiles/_collision_avoidance_generate_messages_check_deps_Istruzione] Error 1
+make[1]: *** [CMakeFiles/_collision_avoidance_generate_messages_check_deps_Istruzione.dir/all] Error 2
+make: *** [all] Error 2

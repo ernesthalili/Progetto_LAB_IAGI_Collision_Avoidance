@@ -51,10 +51,10 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-add_message_files(
-    FILES
-	Istruzione.msg
-	)
+#add_message_files(
+  #  FILES
+	#Istruzione.msg
+	#)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -71,13 +71,13 @@ add_message_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-	DEPENDENCIES
+#generate_messages(
+	#DEPENDENCIES
 	#geometry_msgs
 	#nav_msgs 
 	#sensor_msgs
-	std_msgs
-)
+	#std_msgs
+#)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -113,7 +113,7 @@ catkin_package(
 #  LIBRARIES collision_avoidance
 #  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy sensor_msgs std_msgs 
 #  DEPENDS system_lib
-CATKIN_DEPENDS message_runtime
+#CATKIN_DEPENDS message_runtime
 
 )
 
@@ -225,7 +225,4 @@ include_directories(
 	## catkin
 add_executable(controller_node src/controller_node.cpp)
 target_link_libraries(controller_node ${catkin_LIBRARIES})
-
-add_executable(command_node src/command_node.cpp)
-target_link_libraries(command_node ${catkin_LIBRARIES})
 #add_dependencies(controller_node beginner_tutorials_generate_messages_cpp)   ## Se creati dei messaggi nel package

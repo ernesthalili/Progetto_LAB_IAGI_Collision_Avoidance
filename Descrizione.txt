@@ -13,8 +13,11 @@
 	3.  rosrun collision_avoidance controller_node    -> lancia il nodo /controller_node
 		Controlla il Robot per evitare gli ostacoli e stampa costantemente la posizione del Robot nella mappa
 		  
-	4.  rosrun collision_avoidance command_node     -> lancia il nodo /command_node
-		Tramite questo terminale un utente puo cambiare la velocita del Robot
+	4.  rosrun srrg_joystick_teleop joy_teleop_node -> lancia il nodo che manda messaggi del tipo geometry_msgs/Twist al nodo controllore e che legge 
+		commandi dal dispositivo /opt/dev/js0
+	MODIFICA iMPORTANTE: Nel nodo 'joy_teleop_node.cpp' ho sistituito il nome del topic su quale il nodo publica da '/cmd_vel' a '/vel_joystick'. 
+	La ragione di questa modifica sta nel fatto di distinguere il topic  (joy_teleop_node.cpp) --[Nome topic: /vel_joystick]--> (/controller_node.cpp)  
+	dal topic (controller_node.cpp) --[/cmd_vel]--> (stageros.cpp)
 		
 ATTENZIONE!! 
 	Eseguire per ogni terminale: source devel/setup.bash
