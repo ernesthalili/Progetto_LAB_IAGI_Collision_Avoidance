@@ -5,11 +5,11 @@
 [ 27%] Built target std_msgs_generate_messages_eus
 [ 27%] Built target _collision_avoidance_generate_messages_check_deps_Istruzione
 [ 27%] Built target std_msgs_generate_messages_lisp
-[ 27%] Built target std_msgs_generate_messages_nodejs
 [ 27%] Built target std_msgs_generate_messages_cpp
 [ 45%] Built target collision_avoidance_generate_messages_py
-[ 63%] Built target collision_avoidance_generate_messages_eus
-[ 72%] Built target collision_avoidance_generate_messages_lisp
+[ 45%] Built target std_msgs_generate_messages_nodejs
+[ 54%] Built target collision_avoidance_generate_messages_lisp
+[ 72%] Built target collision_avoidance_generate_messages_eus
 [ 81%] Built target collision_avoidance_generate_messages_cpp
 [ 90%] Built target collision_avoidance_generate_messages_nodejs
 [ 90%] Built target collision_avoidance_generate_messages

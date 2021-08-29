@@ -1,0 +1,25 @@
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:191:65:[m[K [01;31m[Kerror: [m[K‘[01m[Kvalore_distanza_destra_d[m[K’ was not declared in this scope
+     valore_distanza_d = valore_distanza_d * valore_distanza_d * [01;31m[Kvalore_distanza_destra_d[m[K;
+                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:191:65:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kvalore_distanza_d[m[K’
+     valore_distanza_d = valore_distanza_d * valore_distanza_d * [01;36m[Kvalore_distanza_destra_d[m[K;
+                                                                 [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+                                                                 [32m[Kvalore_distanza_d[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:193:65:[m[K [01;31m[Kerror: [m[K‘[01m[Kvalore_distanza_destra_s[m[K’ was not declared in this scope
+     valore_distanza_s = valore_distanza_s * valore_distanza_s * [01;31m[Kvalore_distanza_destra_s[m[K;
+                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:193:65:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kvalore_distanza_s[m[K’
+     valore_distanza_s = valore_distanza_s * valore_distanza_s * [01;36m[Kvalore_distanza_destra_s[m[K;
+                                                                 [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+                                                                 [32m[Kvalore_distanza_s[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:246:27:[m[K [01;31m[Kerror: [m[K‘[01m[KWARNING_ZONE_PARAM[m[K’ was not declared in this scope
+    else if( valore_min <  [01;31m[KWARNING_ZONE_PARAM[m[K )  k_l_imposta = valore_min / WARNING_ZONE_PARAM;
+                           [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:246:27:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[KWARNING_SIDE_PARAM[m[K’
+    else if( valore_min <  [01;36m[KWARNING_ZONE_PARAM[m[K )  k_l_imposta = valore_min / WARNING_ZONE_PARAM;
+                           [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+                           [32m[KWARNING_SIDE_PARAM[m[K
+make[2]: *** [CMakeFiles/controller_node.dir/src/controller_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/controller_node.dir/all] Error 2
+make: *** [all] Error 2

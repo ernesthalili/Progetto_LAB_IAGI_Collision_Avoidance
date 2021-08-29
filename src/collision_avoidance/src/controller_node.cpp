@@ -8,8 +8,11 @@
 #include "std_msgs/String.h"
 
 #define PARAM_VISUALE 400       // Parametro che definisce il range dei valori da togliere sia da sinistra che da destra e mantenere solo i valori centrali
-#define WARNING_ZONE_PARAM 1.5  // Definisce il confine tra lo stato WARNING e DANGER
-#define K_OSTACOLI 0.0001
+#define PARAM_LATTERALE_INIZIO 100
+#define PARAM_LATTERALE_AMPIEZZA 100
+#define WARNING_FRONT_PARAM 1.5  // Definisce il confine tra lo stato WARNING e DANGER
+#define WARNING_SIDE_PARAM 0.3
+#define K_OSTACOLI 0.00001
 #define K_VELOCITA_IMPOSTA 100
 
 struct Forza {
@@ -21,6 +24,7 @@ float angolo_base_mobile;
 Forza* f_att = (Forza*) malloc( sizeof( Forza ) );
 Forza* f_rep = (Forza*) malloc( sizeof( Forza ) );
 Forza* f_ris = (Forza*) malloc( sizeof( Forza ) );
+Forza* f_latt = (Forza*) malloc( sizeof( Forza ) );
 
 
 // Variabili globali che puntano ai messaggi che sono pressi dal /controller_node 
@@ -119,6 +123,8 @@ int main(int argc , char* argv [])
 			 * */
 			
 			float centro[lunghezza_centro];
+			float sinistro[PARAM_LATTERALE_AMPIEZZA];
+			float destro[PARAM_LATTERALE_AMPIEZZA];
 			/*
 			 *Questo ciclo fa l'assegnazione correta dei valori che il laser ottiene agli array creati 
 			 * */
@@ -129,6 +135,15 @@ int main(int argc , char* argv [])
 				{
 					centro[i - PARAM_VISUALE]=laser.ranges[i];
 				}
+				if(i >= PARAM_LATTERALE_INIZIO && i< PARAM_LATTERALE_AMPIEZZA + PARAM_LATTERALE_INIZIO)
+				{
+					destro[i-PARAM_LATTERALE_INIZIO]=laser.ranges[i];
+				}
+				if(i >= len - PARAM_LATTERALE_AMPIEZZA - PARAM_LATTERALE_INIZIO   &&  i < len - PARAM_LATTERALE_INIZIO)
+				{
+					sinistro[i - len - PARAM_LATTERALE_AMPIEZZA - PARAM_LATTERALE_INIZIO] = laser.ranges[i];
+				}
+				
 			}
 			
 			float incremento_radian = 270 / (len * 57.3) ;
@@ -142,23 +157,21 @@ int main(int argc , char* argv [])
 			for(int i=0;i<lunghezza_centro;i++)
 			{
 				//printf("Componente secondo X:%f ;  Componente secondo Y:%f \n",f_rep->x_comp,f_rep->y_comp);
-				if( centro[i] < WARNING_ZONE_PARAM )
+				if( centro[i] < WARNING_FRONT_PARAM )
 				{
-					float valore_secondo_distanza = WARNING_ZONE_PARAM - centro[i];
-					valore_secondo_distanza = valore_secondo_distanza * valore_secondo_distanza * valore_secondo_distanza * valore_secondo_distanza;
+					float valore_secondo_distanza = WARNING_FRONT_PARAM - centro[i];
+					valore_secondo_distanza = valore_secondo_distanza * valore_secondo_distanza * valore_secondo_distanza * valore_secondo_distanza* valore_secondo_distanza;
 					f_rep->x_comp += K_OSTACOLI * (- valore_secondo_distanza * cos(angolo_estremo_destro + i*incremento_radian) );
 					f_rep->y_comp += K_OSTACOLI * (- valore_secondo_distanza * sin(angolo_estremo_destro + i*incremento_radian) );
 					//printf("La distanza:%f  , crea una comp_x:%f   e  comp_y:%f \n",centro[i],(- centro[i] * cos(angolo_estremo_destro + i*incremento_radian) ),(- centro[i] * sin(angolo_estremo_destro + i*incremento_radian) ) );
-					
 				}
 			}
-			//printf("Distanza piu a destra:%f\n",centro[0]);
-			//printf("Distanza piu a sinistra:%f\n",centro[lunghezza_centro]);
+			printf("Distanza piu a destra:%f\n",centro[0]);
+			printf("Distanza piu a sinistra:%f\n",centro[lunghezza_centro]);
 			//printf("F_x_r:%f  ;  F_y_r:%f\n",f_rep->x_comp,f_rep->y_comp);
 			//printf("F_x_a:%f  ;  F_y_a:%f\n",f_att->x_comp,f_att->y_comp);
 			
-			
-			//Angolo imposto dagli ostacoli
+			//Angolo imposto dagli ostacoli frontali
 			float angolo_rep=0;
 			if(f_rep->x_comp != 0 || f_rep->y_comp != 0)
 			{
@@ -170,6 +183,35 @@ int main(int argc , char* argv [])
 					else angolo_rep = angolo_rep - M_PI;
 				}
 			}
+			f_latt->x_comp=0;
+			f_latt->y_comp=0;
+			for(int i=0;i<PARAM_LATTERALE_AMPIEZZA;i++ )
+			{
+				if(destro[i] < WARNING_SIDE_PARAM)
+				{
+					float valore_distanza_d = WARNING_SIDE_PARAM - destro[i];
+					valore_distanza_d = valore_distanza_d * valore_distanza_d * valore_distanza_d;
+				
+					//printf("Valore_distanza_d:%f\n",valore_distanza_d );
+					f_latt->x_comp += K_OSTACOLI *(- valore_distanza_d * cos(angolo_base_mobile - M_PI/2) );
+					f_latt->y_comp += K_OSTACOLI *(- valore_distanza_d * sin(angolo_base_mobile - M_PI/2) );
+				}
+				if(sinistro[i] < WARNING_SIDE_PARAM)
+				{
+					float valore_distanza_s = WARNING_SIDE_PARAM - sinistro[i];
+					valore_distanza_s = valore_distanza_s * valore_distanza_s * valore_distanza_s;
+				
+					//printf("Valore_distanza_s:%f\n",valore_distanza_s );
+					f_latt->x_comp += K_OSTACOLI *(- valore_distanza_s * cos(angolo_base_mobile + M_PI/2) );
+					f_latt->y_comp += K_OSTACOLI *(- valore_distanza_s * sin(angolo_base_mobile + M_PI/2) );
+				}
+			}
+			printf("F_x_l:%f  ;  F_y_l:%f\n",f_latt->x_comp,f_latt->y_comp);
+			
+			//Angolo imposto dagli ostacoli latterali
+			//float angolo_latt=0;
+			
+		
 			// Angolo imposto dalla velocita
 			float angolo_att=0;
 			if(f_att->x_comp != 0 || f_att->y_comp != 0 )
@@ -181,8 +223,8 @@ int main(int argc , char* argv [])
 			
 			//Angolo Giusto
 			float angolo_giusto=angolo_base_mobile;
-			f_ris->x_comp = f_att->x_comp + f_rep->x_comp;
-			f_ris->y_comp = f_att->y_comp + f_rep->y_comp;
+			f_ris->x_comp = f_att->x_comp + f_rep->x_comp ;
+			f_ris->y_comp = f_att->y_comp + f_rep->y_comp ;
 			
 			if(f_ris->x_comp != 0  || f_ris->y_comp != 0)
 			{
@@ -200,7 +242,8 @@ int main(int argc , char* argv [])
 			//printf("F_x_a:%f  ;  F_y_a:%f\n",f_att->x_comp,f_att->y_comp);
 			printf("Angolo base mobile: %f\n",angolo_base_mobile);
 			//vel_stageros.linear.x=f_att->x_comp / cos(angolo_giusto);
-			float v_a_imposta = K_VELOCITA_IMPOSTA * fmodf(angolo_giusto - angolo_base_mobile  , M_PI);
+			float v_a_imposta = 0;
+			if(vel_joystick.linear.x != 0) v_a_imposta = K_VELOCITA_IMPOSTA * fmodf(angolo_giusto - angolo_base_mobile  , M_PI);
 			printf("Velocita imposta :%f\n",v_a_imposta);
 			printf("\n");
 			vel_stageros.angular.z = vel_joystick.angular.z + v_a_imposta;
@@ -208,18 +251,15 @@ int main(int argc , char* argv [])
 			float k_l_imposta =1;
 			float valore_min = min_array(centro,lunghezza_centro);
 			if( valore_min < 0.3 ) k_l_imposta = 0;
-			else if( valore_min <  WARNING_ZONE_PARAM )  k_l_imposta = valore_min / WARNING_ZONE_PARAM;
+			else if( valore_min <  WARNING_FRONT_PARAM )  k_l_imposta = valore_min / WARNING_FRONT_PARAM;
 			k_l_imposta = k_l_imposta * k_l_imposta;
 			
 			if(vel_joystick.linear.x > 0.0 ) vel_stageros.linear.x = k_l_imposta * 2 * vel_joystick.linear.x;
 			else vel_stageros.linear.x = vel_joystick.linear.x;
 			
 			vel_pub.publish(vel_stageros);
-		
-			//if(angolo_giusto > angolo_base_mobile) vel_stageros.angular.z += 0.1;
-			//if(angolo_giusto < angolo_base_mobile) vel_stageros.angular.z -= 0.1;
 			
-			
+						
 			/*
 			 * La seconda parte e' quella decisionale, ovvero la parte che evita gli ostacoli e assegna la velocita correta al Robot
 			 * 

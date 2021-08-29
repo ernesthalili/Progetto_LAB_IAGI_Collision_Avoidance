@@ -1,0 +1,29 @@
+[35m[1mScanning dependencies of target controller_node[0m
+[  0%] Built target std_msgs_generate_messages_py
+[  9%] [32mBuilding CXX object CMakeFiles/controller_node.dir/src/controller_node.cpp.o[0m
+[ 27%] Built target command_node
+[ 27%] Built target std_msgs_generate_messages_eus
+[ 27%] Built target _collision_avoidance_generate_messages_check_deps_Istruzione
+[ 27%] Built target std_msgs_generate_messages_lisp
+[ 27%] Built target std_msgs_generate_messages_nodejs
+[ 45%] Built target collision_avoidance_generate_messages_py
+[ 45%] Built target std_msgs_generate_messages_cpp
+[ 63%] Built target collision_avoidance_generate_messages_eus
+[ 72%] Built target collision_avoidance_generate_messages_nodejs
+[ 81%] Built target collision_avoidance_generate_messages_lisp
+[ 90%] Built target collision_avoidance_generate_messages_cpp
+[ 90%] Built target collision_avoidance_generate_messages
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:191:65:[m[K [01;31m[Kerror: [m[K‘[01m[Kvalore_distanza__d[m[K’ was not declared in this scope
+     valore_distanza_d = valore_distanza_d * valore_distanza_d * [01;31m[Kvalore_distanza__d[m[K;
+                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:191:65:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kvalore_distanza_d[m[K’
+     valore_distanza_d = valore_distanza_d * valore_distanza_d * [01;36m[Kvalore_distanza__d[m[K;
+                                                                 [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+                                                                 [32m[Kvalore_distanza_d[m[K
+CMakeFiles/controller_node.dir/build.make:62: recipe for target 'CMakeFiles/controller_node.dir/src/controller_node.cpp.o' failed
+make[2]: *** [CMakeFiles/controller_node.dir/src/controller_node.cpp.o] Error 1
+CMakeFiles/Makefile2:104: recipe for target 'CMakeFiles/controller_node.dir/all' failed
+make[1]: *** [CMakeFiles/controller_node.dir/all] Error 2
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2
