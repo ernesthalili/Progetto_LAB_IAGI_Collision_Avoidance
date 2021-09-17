@@ -7,7 +7,7 @@
 #include "std_msgs/String.h"
 
 #define PARAM_VISUALE 380       // Parametro che definisce il range dei valori da togliere sia da sinistra che da destra e mantenere solo i valori centrali
-#define WARNING_FRONT_PARAM 1.5  // Definisce il confine tra lo stato WARNING e DANGER
+#define WARNING_FRONT_PARAM 0.8  // Definisce il confine tra lo stato WARNING e DANGER
 #define K_OSTACOLI 0.000001  // 10^(-6)
 #define K_VELOCITA_IMPOSTA 10000 // 10^(4)
 
@@ -81,7 +81,7 @@ int main(int argc , char* argv [])
 	
 	ros::Subscriber odometry_sub = n.subscribe("/odom", 1000, callback_odom);			// legge dal topic  /odom messaggi del tipo : nav_msgs/Odometry
 	
-	ros::Subscriber command_sub = n.subscribe("/vel_joystick",1,callback_joystick);     // legge dal topic /vel_joystick messaggi del tipo: geometry_msgs/Twist
+	ros::Subscriber command_sub = n.subscribe("/vel_path_follower",1,callback_joystick);     // legge dal topic /vel_joystick messaggi del tipo: geometry_msgs/Twist
 	 
 	 
 	ros::Rate r(1000);						
