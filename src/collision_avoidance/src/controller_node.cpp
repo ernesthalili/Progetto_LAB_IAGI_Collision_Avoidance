@@ -16,6 +16,8 @@
 bool decisione_da_prendere=true;
 float valore_decisione=0;
 
+bool vel_letto=false;
+
 struct Forza {
 	float x_comp;
 	float y_comp;
@@ -31,7 +33,7 @@ Forza* f_ris = (Forza*) malloc( sizeof( Forza ) );
 // Variabili globali che puntano ai messaggi che sono pressi/mandati dal /controller_node 
 sensor_msgs::LaserScan laser;    
 nav_msgs::Odometry odom;
-geometry_msgs::Twist vel_joystick;
+geometry_msgs::Twist vel_input;
 
 geometry_msgs::Twist vel_stageros;
 
@@ -65,9 +67,10 @@ void callback_odom(const nav_msgs::Odometry::ConstPtr& msg)
 }
 
 // funzione di callback per Istruzione
-void callback_joystick(const geometry_msgs::Twist::ConstPtr& msg)
+void callback_input(const geometry_msgs::Twist::ConstPtr& msg)
 {
-	vel_joystick = *msg;
+	vel_input = *msg;
+	vel_letto=true;
 }
 
 //main
@@ -86,9 +89,9 @@ int main(int argc , char* argv [])
 	
 	ros::Subscriber odometry_sub = n.subscribe("/odom", 1000, callback_odom);			// legge dal topic  /odom messaggi del tipo : nav_msgs/Odometry
 	
-	ros::Subscriber command_sub = n.subscribe("/vel_joystick",1,callback_joystick);     // legge dal topic /vel_joystick messaggi del tipo: geometry_msgs/Twist
+	//ros::Subscriber command_sub = n.subscribe("/vel_joystick",1,callback_input);     // legge dal topic /vel_joystick messaggi del tipo: geometry_msgs/Twist
 	
-	//ros::Subscriber command_sub = n.subscribe("/vel_path_follower",1,callback_joystick); // legge dal topic /vel_path_follower messaggi del tipo: geometry_msgs/Twist
+	ros::Subscriber command_sub = n.subscribe("/vel_path_follower",1,callback_input); // legge dal topic /vel_path_follower messaggi del tipo: geometry_msgs/Twist
 	 
 	ros::Rate r(1000);						
 	while(ros::ok())
@@ -96,6 +99,10 @@ int main(int argc , char* argv [])
 		angolo_base_mobile = odom.pose.pose.orientation.z * M_PI;            // Angolo (radian) che la base mobile forma con l'asse delle ascisse
 		vel_stageros.linear.x=0;											 
 		vel_stageros.angular.z=0;
+		
+		if(vel_letto  == true)  {vel_letto = false;}
+		else {vel_input.linear.x=0 ; vel_input.angular.z=0;}
+		
 		
 		
 		int len = laser.ranges.size();				           				// misura la lunghezza dell'array che mantieni i valori del laser (1081)
@@ -121,7 +128,7 @@ int main(int argc , char* argv [])
 					fronte[i - PARAM_FRONTE]=laser.ranges[i];
 				}
 			}
-			printf("Velocita lineare:%f   e angolare:%f\n",vel_joystick.linear.x,vel_joystick.angular.z);
+			printf("Velocita lineare:%f   e angolare:%f\n",vel_input.linear.x,vel_input.angular.z);
 			
 			float incremento_radian = 270 / (len * 56.5) ;					// differenza del angolo in radian delle misure adiacenti del laser
 			float angolo_estremo_destro = angolo_base_mobile - incremento_radian*lunghezza_centro/2; // valore del angolo per la misura piu a destra del vettore centro
@@ -162,8 +169,8 @@ int main(int argc , char* argv [])
 					else angolo_rep = angolo_rep - M_PI;
 				}
 			}*/
-			f_att->x_comp = vel_joystick.linear.x * cos(angolo_base_mobile);	
-			f_att->y_comp = vel_joystick.linear.x * sin(angolo_base_mobile);
+			f_att->x_comp = vel_input.linear.x * cos(angolo_base_mobile);	
+			f_att->y_comp = vel_input.linear.x * sin(angolo_base_mobile);
 		
 			// Angolo imposto dalla velocita
 			/*float angolo_att=0;
@@ -200,10 +207,10 @@ int main(int argc , char* argv [])
 			float v_a_imposta = 0;											// La velocita angolare che viene aggiunta a quella del joystick 
 																			// per ridirezzionare la base mobile secondo il verso giusto
 			// Se non mando una velocita lineare V_A_IMPOSTA sara nulla
-			if(vel_joystick.linear.x != 0) v_a_imposta = K_VELOCITA_IMPOSTA * fmodf(angolo_giusto - angolo_base_mobile  , M_PI);
+			if(vel_input.linear.x != 0) v_a_imposta = K_VELOCITA_IMPOSTA * fmodf(angolo_giusto - angolo_base_mobile  , M_PI);
 			printf("Velocita imposta :%f\n",v_a_imposta);
 			printf("\n");
-			vel_stageros.angular.z = vel_joystick.angular.z + v_a_imposta;  // Velocita angolare da mandare al nodo /stageros
+			vel_stageros.angular.z = vel_input.angular.z + v_a_imposta;  // Velocita angolare da mandare al nodo /stageros
 			
 			float k_l_imposta = 1;                                           // coefficiente che moltiplica la velocita lineare della base mobile ed e' 
 																		    // tanto piccolo quanto piu corta e' la distanza dagli ostacoli
@@ -236,13 +243,13 @@ int main(int argc , char* argv [])
 			
 			k_l_imposta = pow(k_l_imposta,2);
 			
-			if(vel_joystick.linear.x > 0.0 ) 
+			if(vel_input.linear.x > 0.0 ) 
 			{
-				vel_stageros.linear.x = 2 * k_l_imposta * vel_joystick.linear.x;   // La velocita lineare da mandare al nodo /stageros
+				vel_stageros.linear.x = 2 * k_l_imposta * vel_input.linear.x;   // La velocita lineare da mandare al nodo /stageros
 			}
 			else
 			{ 
-				vel_stageros.linear.x = vel_joystick.linear.x;						// Il coefficiente non influisce se andiamo indietro
+				vel_stageros.linear.x = vel_input.linear.x;						// Il coefficiente non influisce se andiamo indietro
 			}
 			
 			vel_pub.publish(vel_stageros);								// publica la velocita
