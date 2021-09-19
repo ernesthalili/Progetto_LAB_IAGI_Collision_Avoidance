@@ -1,0 +1,7 @@
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:201:44:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kfloat[m[K’ to ‘[01m[Kfloat*[m[K’ for argument ‘[01m[K1[m[K’ to ‘[01m[Kfloat min_array(float*, int)[m[K’
+    float valore_min = min_array(centro[0],1[01;31m[K)[m[K;   // Uso della funzione aux per calcolare la minima distanza che l'array misura
+                                            [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/controller_node.dir/src/controller_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/controller_node.dir/all] Error 2
+make: *** [all] Error 2

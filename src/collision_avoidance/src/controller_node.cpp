@@ -6,10 +6,15 @@
 #include <cmath>
 #include "std_msgs/String.h"
 
-#define PARAM_VISUALE 380       // Parametro che definisce il range dei valori da togliere sia da sinistra che da destra e mantenere solo i valori centrali
-#define WARNING_FRONT_PARAM 0.8  // Definisce il confine tra lo stato WARNING e DANGER
+#define PARAM_FRONTE 500        // Parametro che definisce il range dei valori da togliere sia da sinistra che da destra e mantenere solo i valori frontali
+#define PARAM_VISUALE 400       // Parametro che definisce il range dei valori da togliere sia da sinistra che da destra e mantenere solo i valori centrali
+#define WARNING_CENTER_PARAM 1  // Definisce la distanza di sicurezza (per valori del laser > 1 , la base mobile non reagisce agli ostacoli)
+#define WARNING_FRONT_PARAM 0.2
 #define K_OSTACOLI 0.000001  // 10^(-6)
 #define K_VELOCITA_IMPOSTA 10000 // 10^(4)
+
+bool decisione_da_prendere=true;
+float valore_decisione=0;
 
 struct Forza {
 	float x_comp;
@@ -81,36 +86,44 @@ int main(int argc , char* argv [])
 	
 	ros::Subscriber odometry_sub = n.subscribe("/odom", 1000, callback_odom);			// legge dal topic  /odom messaggi del tipo : nav_msgs/Odometry
 	
-	ros::Subscriber command_sub = n.subscribe("/vel_path_follower",1,callback_joystick);     // legge dal topic /vel_joystick messaggi del tipo: geometry_msgs/Twist
-	 
+	ros::Subscriber command_sub = n.subscribe("/vel_joystick",1,callback_joystick);     // legge dal topic /vel_joystick messaggi del tipo: geometry_msgs/Twist
+	
+	//ros::Subscriber command_sub = n.subscribe("/vel_path_follower",1,callback_joystick); // legge dal topic /vel_path_follower messaggi del tipo: geometry_msgs/Twist
 	 
 	ros::Rate r(1000);						
 	while(ros::ok())
 	{
-		
 		angolo_base_mobile = odom.pose.pose.orientation.z * M_PI;            // Angolo (radian) che la base mobile forma con l'asse delle ascisse
 		vel_stageros.linear.x=0;											 
 		vel_stageros.angular.z=0;
 		
+		
 		int len = laser.ranges.size();				           				// misura la lunghezza dell'array che mantieni i valori del laser (1081)
 		int lunghezza_centro=len - 2*PARAM_VISUALE;							// misura la lunghezza dell'array che mantiene solo i valori centrali del laser
+		int lunghezza_fronte =len - 2*PARAM_FRONTE;
 		if (len > 0)
 		{	
 			float centro[lunghezza_centro];
+			float fronte[lunghezza_fronte];
 			/*
 			 *Questo ciclo fa l'assegnazione correta dei valori che il laser ottiene all'array centrale
 			 * */
 			for(int i = 0; i < len; i++)
 			{
 				// Assegnazione Centro di solo i valori corretti
-				if(i >= PARAM_VISUALE ||  i < len-PARAM_VISUALE)
+				if(i >= PARAM_VISUALE &&  i < len-PARAM_VISUALE)
 				{
 					centro[i - PARAM_VISUALE]=laser.ranges[i];
+				}
+				
+				if(i >= PARAM_FRONTE &&  i < len-PARAM_FRONTE)
+				{
+					fronte[i - PARAM_FRONTE]=laser.ranges[i];
 				}
 			}
 			printf("Velocita lineare:%f   e angolare:%f\n",vel_joystick.linear.x,vel_joystick.angular.z);
 			
-			float incremento_radian = 270 / (len * 57.3) ;					// differenza del angolo in radian delle misure adiacenti del laser
+			float incremento_radian = 270 / (len * 56.5) ;					// differenza del angolo in radian delle misure adiacenti del laser
 			float angolo_estremo_destro = angolo_base_mobile - incremento_radian*lunghezza_centro/2; // valore del angolo per la misura piu a destra del vettore centro
 			//printf("Inremento(radian): %f   ;  angolo_base_mobile:%f   ;  angolo_est_destro:%f\n",incremento_radian,angolo_base_mobile,angolo_estremo_destro);
 			
@@ -121,9 +134,9 @@ int main(int argc , char* argv [])
 			for(int i=0;i<lunghezza_centro;i++)
 			{
 				//printf("Componente secondo X:%f ;  Componente secondo Y:%f \n",f_rep->x_comp,f_rep->y_comp);
-				if( centro[i] < WARNING_FRONT_PARAM )
+				if( centro[i] < WARNING_CENTER_PARAM )
 				{
-					float valore_secondo_distanza = WARNING_FRONT_PARAM - centro[i];
+					float valore_secondo_distanza = WARNING_CENTER_PARAM - centro[i];
 					valore_secondo_distanza = pow(valore_secondo_distanza,5);
 					//valore_secondo_distanza = valore_secondo_distanza * valore_secondo_distanza * valore_secondo_distanza * valore_secondo_distanza * valore_secondo_distanza;
 					f_rep->x_comp += K_OSTACOLI * (- valore_secondo_distanza * cos(angolo_estremo_destro + i*incremento_radian) );
@@ -192,16 +205,33 @@ int main(int argc , char* argv [])
 			printf("\n");
 			vel_stageros.angular.z = vel_joystick.angular.z + v_a_imposta;  // Velocita angolare da mandare al nodo /stageros
 			
-			float k_l_imposta =1;                                           // coefficiente che moltiplica la velocita lineare della base mobile ed e' 
-																			// tanto piccolo quanto piu corta e' la distanza dagli ostacoli
-			float valore_min = min_array(centro,lunghezza_centro);			// Uso della funzione aux per calcolare la minima distanza che l'array misura
-			if( valore_min < 0.3 ) 
+			float k_l_imposta = 1;                                           // coefficiente che moltiplica la velocita lineare della base mobile ed e' 
+																		    // tanto piccolo quanto piu corta e' la distanza dagli ostacoli
+			float valore_min_fronte = min_array(fronte , lunghezza_fronte);			// Uso della funzione aux per calcolare la minima distanza che l'array misura
+			if( valore_min_fronte < WARNING_FRONT_PARAM ) 
 			{
 				k_l_imposta = 0;							// Evita che la base mobile viene sbattuta verso il muro quando viene trovato in trapola
+				if(decisione_da_prendere == true)
+				{
+						printf("Cambio valore_decisione\n");
+						decisione_da_prendere=false;
+						if(v_a_imposta > 0 ) valore_decisione=0.5;
+						else valore_decisione=-0.5;
+				}
+				vel_stageros.angular.z += valore_decisione;
 			}
-			else if( valore_min <  WARNING_FRONT_PARAM )
+			else
+			{
+					printf("Cambio valore_decisione a 0\n");
+					decisione_da_prendere=true;
+					valore_decisione=0;
+			}
+			printf("valore k_l_imposta:%f\n",k_l_imposta);
+			printf("valore_decisione : %f\n",valore_decisione);
+			float valore_min_centro = min_array(centro,lunghezza_centro);
+			if( valore_min_centro <  WARNING_CENTER_PARAM )
 			{  
-				k_l_imposta = valore_min / WARNING_FRONT_PARAM;     // Piu vicino l'ostacolo minore il coefficiente
+				if(valore_min_fronte > WARNING_FRONT_PARAM ) k_l_imposta = valore_min_centro / WARNING_CENTER_PARAM;     // Piu vicino l'ostacolo minore il coefficiente
 			}
 			
 			k_l_imposta = pow(k_l_imposta,2);

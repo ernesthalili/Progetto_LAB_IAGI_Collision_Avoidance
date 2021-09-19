@@ -1,0 +1,12 @@
+[35m[1mScanning dependencies of target controller_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/controller_node.dir/src/controller_node.cpp.o[0m
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:210:8:[m[K [01;31m[Kerror: [m[K‘[01m[Kvalore_min[m[K’ was not declared in this scope
+    if( [01;31m[Kvalore_min[m[K < 0.4 )
+        [01;31m[K^~~~~~~~~~[m[K
+CMakeFiles/controller_node.dir/build.make:62: recipe for target 'CMakeFiles/controller_node.dir/src/controller_node.cpp.o' failed
+make[2]: *** [CMakeFiles/controller_node.dir/src/controller_node.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/controller_node.dir/all' failed
+make[1]: *** [CMakeFiles/controller_node.dir/all] Error 2
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2
