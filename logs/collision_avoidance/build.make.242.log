@@ -1,0 +1,35 @@
+[35m[1mScanning dependencies of target controller_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/controller_node.dir/src/controller_node.cpp.o[0m
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:24:1:[m[K [01;31m[Kerror: [m[K‘[01m[KForza[m[K’ does not name a type
+ [01;31m[KForza[m[K* f_att;
+ [01;31m[K^~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:25:1:[m[K [01;31m[Kerror: [m[K‘[01m[KForza[m[K’ does not name a type
+ [01;31m[KForza[m[K* f_rep;
+ [01;31m[K^~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:26:1:[m[K [01;31m[Kerror: [m[K‘[01m[KForza[m[K’ does not name a type
+ [01;31m[KForza[m[K* f_ris;
+ [01;31m[K^~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:97:2:[m[K [01;31m[Kerror: [m[K‘[01m[Kf_att[m[K’ was not declared in this scope
+  [01;31m[Kf_att[m[K = (Forza*) malloc( sizeof( Forza ) );
+  [01;31m[K^~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:98:2:[m[K [01;31m[Kerror: [m[K‘[01m[Kf_rep[m[K’ was not declared in this scope
+  [01;31m[Kf_rep[m[K = (Forza*) malloc( sizeof( Forza ) );
+  [01;31m[K^~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:98:2:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kfree[m[K’
+  [01;36m[Kf_rep[m[K = (Forza*) malloc( sizeof( Forza ) );
+  [01;36m[K^~~~~[m[K
+  [32m[Kfree[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:99:2:[m[K [01;31m[Kerror: [m[K‘[01m[Kf_ris[m[K’ was not declared in this scope
+  [01;31m[Kf_ris[m[K = (Forza*) malloc( sizeof( Forza ) );
+  [01;31m[K^~~~~[m[K
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:99:2:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[K__rint[m[K’
+  [01;36m[Kf_ris[m[K = (Forza*) malloc( sizeof( Forza ) );
+  [01;36m[K^~~~~[m[K
+  [32m[K__rint[m[K
+CMakeFiles/controller_node.dir/build.make:62: recipe for target 'CMakeFiles/controller_node.dir/src/controller_node.cpp.o' failed
+make[2]: *** [CMakeFiles/controller_node.dir/src/controller_node.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/controller_node.dir/all' failed
+make[1]: *** [CMakeFiles/controller_node.dir/all] Error 2
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2

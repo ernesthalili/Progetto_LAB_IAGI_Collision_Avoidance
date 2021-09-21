@@ -1,0 +1,8 @@
+[35m[1mScanning dependencies of target controller_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/controller_node.dir/src/controller_node.cpp.o[0m
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/src/collision_avoidance/src/controller_node.cpp:97:31:[m[K [01;35m[Kwarning: [m[Kconverting to non-pointer type ‘[01m[Klong int[m[K’ from NULL [[01;35m[K-Wconversion-null[m[K]
+  tempo_ultimo_aggiornamento = [01;35m[KNULL[m[K;
+                               [01;35m[K^~~~[m[K
+[100%] [32m[1mLinking CXX executable /home/ernest/Documents/Universita/Terzo_anno/LAB_IAGI/Progetto_finale_LABIAGI/Progetto_LAB_IAGI_Collision_Avoidance/devel/.private/collision_avoidance/lib/collision_avoidance/controller_node[0m
+[100%] Built target controller_node
