@@ -92,9 +92,9 @@ int main(int argc , char* argv [])
 	
 	ros::Subscriber odometry_sub = n.subscribe("/odom", 1000, callback_odom);			// legge dal topic  /odom messaggi del tipo : nav_msgs/Odometry
 	
-	//ros::Subscriber command_sub = n.subscribe("/vel_joystick",1,callback_input);     // legge dal topic /vel_joystick messaggi del tipo: geometry_msgs/Twist
+	ros::Subscriber command_sub = n.subscribe("/vel_joystick",1,callback_input);     // legge dal topic /vel_joystick messaggi del tipo: geometry_msgs/Twist
 	
-	ros::Subscriber command_sub = n.subscribe("/vel_path_follower",1,callback_input); // legge dal topic /vel_path_follower messaggi del tipo: geometry_msgs/Twist
+	//ros::Subscriber command_sub = n.subscribe("/vel_path_follower",1,callback_input); // legge dal topic /vel_path_follower messaggi del tipo: geometry_msgs/Twist
 	 
 	f_att = (Forza*) malloc( sizeof( Forza ) );
 	f_rep = (Forza*) malloc( sizeof( Forza ) );
